@@ -1,0 +1,11 @@
+mysql> select count(*), price from bouquets group by price;
++----------+-------+
+| count(*) | price |
++----------+-------+
+|        1 |  1500 |
+|        1 |  1700 |
+|        1 |  2000 |
+|        1 |  1000 |
+|        1 |  1200 |
++----------+-------+
+5 rows in set (0.01 sec)

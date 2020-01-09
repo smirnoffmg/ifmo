@@ -1,0 +1,21 @@
+DELIMITER $$
+
+CREATE TRIGGER rc_avg_price_upd AFTER UPDATE ON bouquets 
+FOR EACH ROW 
+BEGIN
+CALL `flowers`.`agg_price`();
+END$$
+
+CREATE TRIGGER rc_avg_price_ins AFTER INSERT ON bouquets 
+FOR EACH ROW 
+BEGIN
+CALL `flowers`.`agg_price`();
+END$$
+
+CREATE TRIGGER rc_avg_price_del AFTER DELETE ON bouquets 
+FOR EACH ROW 
+BEGIN
+CALL `flowers`.`agg_price`();
+END$$
+
+DELIMITER ;

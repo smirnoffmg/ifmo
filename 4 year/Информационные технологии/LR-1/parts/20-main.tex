@@ -1,0 +1,157 @@
+\section{Ход работы}
+
+
+\subsection{Измерения}
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Конденсатор & Номинал  & C при $t=24^\circ$      & C при $t=40^\circ$      & C при $t=60^\circ$      & C при $t=80^\circ$      & C при $t=100^\circ$      \\ \hline
+			К40У       & 0.33 мкФ & 0.33 мкФ & 0.5 мкФ & 0.6 мкФ & 0.7 мкФ & 0.8 мкФ  \\ \hline
+			ФТ          & 1200 пФ  & 1.35 нФ  & 1.45 нФ & 1.5 нФ  & 1.5 нФ  & 1.5 нФ   \\ \hline
+			КМ          & 1100 пФ  & 1.35 нФ  & 1.35 нФ& 1.4 нФ  & 1.4 нФ  & 1.4 нФ   \\ \hline
+			МБМ         & 0.05 мкФ  & 0.18 мкФ & 0.2 мкФ & 0.2 мкФ & 0.2 мкФ & 0.25 мкФ \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость ёмкости от температуры для К40У},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$C$, мкФ },
+	xmin=0, xmax=110,
+	ymin=0, ymax=1,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 0.33) (40, 0.5) (60, 0.6) (80, 0.7) (100, 0.8)
+	};
+
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{К40У}} = \frac{0.8-0.5}{0.5 (100-40)} = 0.01
+\]
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость ёмкости от температуры для ФТ},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$C$, нФ },
+	xmin=0, xmax=110,
+	ymin=0, ymax=2,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 1.35) (40, 1.45) (60, 1.5) (80, 1.5) (100, 1.5)
+	};
+	
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{ФТ}} = \frac{1.5-1.35}{1.35 (100-40)} \approx 0.001
+\]
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость ёмкости от температуры для КМ},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$C$, нФ },
+	xmin=0, xmax=110,
+	ymin=0, ymax=2,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 1.35) (40, 1.35) (60, 1.4) (80, 1.4) (100, 1.4)
+	};
+	
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{КМ}} = \frac{1.4-1.35}{1.35 (100-40)} \approx 0.0006
+\]
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость ёмкости от температуры для МБМ},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$C$, нФ },
+	xmin=0, xmax=110,
+	ymin=0, ymax=1,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 0.18) (40, 0.2) (60, 0.2) (80, 0.2) (100, 0.25)
+	};
+	
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{МБМ}} = \frac{0.25-0.2}{0.2 (100-40)} \approx 0,004
+\]
+
+
+	
+
+
+\section{Вывод}
+
+Было проведено исследование зависимости емкости конденсаторов с различными диэлектриками от температуры и определение (ТКЕ) этих конденсаторов
+
+Графики, полученные в ходе работы, подтверждают теоретические сведения.
+

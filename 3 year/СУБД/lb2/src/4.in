@@ -1,0 +1,9 @@
+mysql> select id, bouquets_id from bouquet_photos;
++----+-------------+
+| id | bouquets_id |
++----+-------------+
+|  1 |           1 |
+|  2 |           2 |
+|  3 |           3 |
++----+-------------+
+3 rows in set (0.00 sec)

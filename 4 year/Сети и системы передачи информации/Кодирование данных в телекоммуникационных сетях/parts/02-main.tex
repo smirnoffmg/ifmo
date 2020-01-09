@@ -1,0 +1,349 @@
+\section{Ход работы}
+
+\subsection{Формирование сообщения}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		Исходное сообщение       & Смирнов М.Г.                                                                                                \\ \hline
+		В шестнадцатеричном коде & D1 EC E8 F0 ED EE E2 20 CC 2E C3 2E                                                                         \\ \hline
+		В двоичном коде          & \parbox[c][3cm]{9cm}{11010001 11101100 11101000 11110000 11101101 11101110 11100010 00100000 11001100 00101110 11000011 00101110} \\ \hline
+		Длина сообщения          & 12 байт (96 бит)                                                                                            \\ \hline
+	\end{tabular}
+\end{table}
+
+\subsection{Физическое кодирование исходного сообщения}
+
+Потенциальный код без возврата к нулю (NRZ):
+
+\begin{figure}[H]
+	\centering
+	
+	\begin{tikztimingtable}[timing/slope=0, scale=1]
+	NRZ          & HHLHLLLHHHHLHHLLHHHLHLLLHHHHLLLL \\
+	\extracode
+	\makeatletter
+	\begin{pgfonlayer}{background}
+		\vertlines[help lines, black]{}
+		\horlines[black]{}
+		\foreach [count=\x] \b in {1,1,0,1,0,0,0,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,0,1,1,1,1,0,0,0,0} {
+			\node [above,font=\sffamily\bfseries\tiny,inner ysep=0pt] at (\x-.5,-1.5) {\b};
+		}
+	\end{pgfonlayer}
+\end{tikztimingtable}
+\end{figure}
+
+\[
+f_\text{в} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{8} = 125 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 375  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = \left( 5 \cdot f_0 + 6 \cdot \frac{f_0}{2} + 9 \cdot \frac{f_0}{3} + 12 \cdot \frac{f_0}{4} \right) / 32 = \frac{14 \cdot f_0}{32} = 0.4375 \cdot f_0 = 218.75 \text{ мГц}
+\]
+
+Биполярный импульсный код (RZ):
+
+\begin{figure}[H]
+	\centering
+	
+	\begin{tikztimingtable}[timing/slope=0, scale=1]
+		RZ           & hzhzlzhzlzlzlzhzhzhzhzlzhzhzlzlzhzhzhzlzhzlzlzlzhzhzhzhzlzlzlzlz\\
+		\extracode
+		\makeatletter
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines, black]{}
+			\horlines[black,yshift=2mm]{}
+			\foreach [count=\x] \b in {1,1,0,1,0,0,0,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,0,1,1,1,1,0,0,0,0} {
+				\node [above,font=\sffamily\bfseries\tiny,inner ysep=0pt] at (\x-.5,-1.5) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+	
+\end{figure}
+
+
+\[
+f_\text{в} = C = 1000 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{4} = 250 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 375  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 675 \text{ мГц}
+\]
+
+Биполярное кодирование с чередующейся инверсией (AMI):
+
+\begin{figure}[H]
+	\centering
+	
+	\begin{tikztimingtable}[timing/slope=0, scale=1]
+		AMI & HLZHZZZLHLHZLHZZLHLZHZZZLHLHZZZZ \\
+		\extracode
+		\makeatletter
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines, black]{}
+			\horlines[black,yshift=2mm]{}
+			\foreach [count=\x] \b in {1,1,0,1,0,0,0,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,0,1,1,1,1,0,0,0,0} {
+				\node [above,font=\sffamily\bfseries\tiny,inner ysep=0pt] at (\x-.5,-1.5) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+	
+\end{figure}
+
+\[
+f_\text{в} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{4} = 250 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 250  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 360 \text{ мГц}
+\]
+
+Манчестерский код:
+
+\begin{figure}[H]
+	\centering
+	\begin{tikztimingtable}[scale=1,timing/.cd,
+		c/dual arrows,c/arrow tip=latex,
+		c/arrow pos=.7,
+		metachar={v}{[timing/c/no arrows]c[timing/c/dual arrows]},
+		slope=0]
+		\shortstack[l]{M} 
+		&zhzhhzzhhzhzhzzhzhzhzhhzzhzhhzhzzhzhzhhzzhhzhzhzzhzhzhzhhzhzhzhz\\
+		\extracode
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines,brown]{}
+			\foreach [count=\x] \b in {1,1,0,1,0,0,0,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,0,1,1,1,1,0,0,0,0} {
+				\node [below,font=\sffamily\bfseries\tiny,inner ysep=2pt] at (\x-.5,0) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+\end{figure}
+
+\[
+f_\text{в} = C = 1000 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 500  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 765,625 \text{ мГц}
+\]
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		& NRZ & RZ  & AMI & Манчестерский код \\ \hline
+		Ширина спектра, МГц                & 334 & 750 & 250 & 500               \\ \hline
+		Отсутствие постоянной составляющей & -   & +   & +   & +                 \\ \hline
+		Самосинхронизация                  & -   & +   & +   & +                 \\ \hline
+		Количество уровней                 & 2   & 3   & 3   & 2                 \\ \hline
+		Распознавание ошибок               & -   & -   & +   & -                 \\ \hline
+	\end{tabular}
+\end{table}
+
+На основании таблицы можно сделать вывод, что наиболее подходящими являются AMI и Манчестерский код.
+
+\subsection{Логическое (избыточное) кодирование исходного сообщения}
+
+Исходное сообщение: \textbf{1101 0001 1110 1100 1110 1000 1111 0000 1110 1101 1110 1110 1110 0010 0010 0000 1100 1100 0010 1110 1100 0011 0010 1110}.
+
+4b/5b: \textbf{1101 1010 0111 1001 1010 1110 0100 1011 1011 1110 1110 0110 1111 1001 1100 1110 0101 0010 1001 1110 1101 0110 1010 1001 1100 1101 0101 0110 1001 1100}.
+
+В шестнадцатеричном коде: \textbf{DA 79 AE 4B BE E6 F9 CE 52 9E D6 A9 CD 56 9C}.
+
+Длина сообщения: 120 бит.
+
+Биполярное кодирование с чередующейся инверсией (AMI):
+
+\begin{figure}[H]
+	\centering
+	
+	\begin{tikztimingtable}[timing/slope=0, scale=1]
+		AMI & HLZHLZHZZLHLHZZLHZLZHLHZZLZZHZLH \\
+		\extracode
+		\makeatletter
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines, black]{}
+			\horlines[black,yshift=2mm]{}
+			\foreach [count=\x] \b in {1,1,0,1,1,0,1,0,0,1,1,1,1,0,0,1,1,0,1,0,1,1,1,0,0,1,0,0,1,0,1,1} {
+				\node [above,font=\sffamily\bfseries\tiny,inner ysep=0pt] at (\x-.5,-1.5) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+	
+\end{figure}
+
+\[
+f_\text{в} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{4} = 250 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 250  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 360 \text{ мГц}
+\]
+
+Манчестерский код:
+
+\begin{figure}[H]
+	\centering
+	\begin{tikztimingtable}[scale=1,timing/.cd,
+		c/dual arrows,c/arrow tip=latex,
+		c/arrow pos=.7,
+		metachar={v}{[timing/c/no arrows]c[timing/c/dual arrows]},
+		slope=0]
+		\shortstack[l]{M} 
+		&zhzhhzzhhzhzhzzhzhzhzhhzzhzhhzhzzhzhzhhzzhhzhzhzzhzhzhzhhzhzhzhz\\
+		\extracode
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines,brown]{}
+			\foreach [count=\x] \b in {1,1,0,1,0,0,0,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,0,0,1,1,1,1,0,0,0,0} {
+				\node [below,font=\sffamily\bfseries\tiny,inner ysep=2pt] at (\x-.5,0) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+\end{figure}
+
+\[
+f_\text{в} = C = 1000 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 500  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 725 \text{ мГц}
+\]
+
+В биполярном кодирование с чередующейся инверсией средняя частота и ширина спектра гораздо ниже, чем в манчестерском коде, поэтому оно более оптимально
+
+\subsection{Скремблирование исходного сообщения}
+
+Будем использовать выражение $B_i = A_i \oplus B_{i-3} \oplus B_{i-5}$
+
+Исходное сообщение: \textbf{1101 0001 1110 1100 1110 1000 1111 0000 1110 1101 1110 1110 1110 0010 0010 0000 1100 1100 0010 1110 1100 0011 0010 1110}.
+
+Скремблированное сообщение: \textbf{1100 1101 0101 1110 0001 0010 1010 1001 0111 0111 0011 1100 0100 1001 0111 0101 1101 0011 1100 1010 0110 1101 0101 0010}.
+
+Биполярное кодирование с чередующейся инверсией (AMI):
+
+\begin{figure}[H]
+	\centering
+	
+	\begin{tikztimingtable}[timing/slope=0, scale=1]
+		AMI & HLZZHLZHZLZHLHLZZZZHZZLZHZLZHZZL \\
+		\extracode
+		\makeatletter
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines, black]{}
+			\horlines[black,yshift=2mm]{}
+			\foreach [count=\x] \b in {1,1,0,0,1,1,0,1,0,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,1,0,1,0,1,0,0,1} {
+				\node [above,font=\sffamily\bfseries\tiny,inner ysep=0pt] at (\x-.5,-1.5) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+	
+\end{figure}
+
+\[
+f_\text{в} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{4} = 250 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 250  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 360 \text{ мГц}
+\]
+
+Манчестерский код:
+
+\begin{figure}[H]
+	\centering
+	\begin{tikztimingtable}[scale=1,timing/.cd,
+		c/dual arrows,c/arrow tip=latex,
+		c/arrow pos=.7,
+		metachar={v}{[timing/c/no arrows]c[timing/c/dual arrows]},
+		slope=0]
+		\shortstack[l]{M}
+		& zhzhzlzlzhzhzlzhzlzhzlzhzhzhzhzlzlzlzlzhzlzlzhzlzhzlzhzlzhzlzlzh \\
+		\extracode
+		\begin{pgfonlayer}{background}
+			\vertlines[help lines,brown]{}
+			\foreach [count=\x] \b in {1,1,0,0,1,1,0,1,0,1,0,1,1,1,1,0,0,0,0,1,0,0,1,0,1,0,1,0,1,0,0,1} {
+				\node [below,font=\sffamily\bfseries\tiny,inner ysep=2pt] at (\x-.5,0) {\b};
+			}
+		\end{pgfonlayer}
+	\end{tikztimingtable}
+\end{figure}
+\[
+f_\text{в} = C = 1000 \text{ мГц}
+\]
+
+\[
+f_\text{н} = \frac{C}{2} = 500 \text{ мГц}
+\]
+
+\[
+S = f_\text{в} - f_\text{н} = 500  \text{ мГц}
+\]
+
+\[
+f_\text{ср} = 725 \text{ мГц}
+\]
+
+В биполярном кодирование с чередующейся инверсией средняя частота и ширина спектра ниже, чем в манчестерском коде, поэтому оно наиболее оптимально
+
+\subsection{Сравнительный анализ результатов кодирования}
+
+Оптимальным способом кодирования для исходного сообщения является биполярное кодирование с чередующейся инверсией.
+
+В AMI ширина спектра ниже, чем у других способов кодирования, присутствует самосинхронизация и возможность распознавания ошибок. При этом у него три уровня кодирования, что увеличивает затраты на мощность и может появиться постоянная составляющая.

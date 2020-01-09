@@ -1,0 +1,214 @@
+\section{Ход работы}
+
+\begin{table}[h]
+	\centering
+	\caption{Входная характеристика оптрона}
+	\begin{tabular}{|c|c|}
+		\hline
+		$U_\text{ВХ}$, В   & $I_\text{ВХ}$ , мА   \\ \hline
+		0   & 0    \\ \hline
+		0.2 & 0    \\ \hline
+		0.4 & 0    \\ \hline
+		0.6 & 1    \\ \hline
+		0.8 & 3.5  \\ \hline
+		1   & 7    \\ \hline
+		1.2 & 8.5  \\ \hline
+		1.4 & 11.5 \\ \hline
+		1.6 & 15   \\ \hline
+		1.8 & 17.5 \\ \hline
+		1.9 & 18.5 \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[!h]
+	\centering
+\begin{tikzpicture}
+\begin{axis}[
+title={Входная характеристика оптрона},
+xlabel={$U_\text{ВХ}$, В},
+ylabel={$I_\text{ВХ}$, мА },
+xmin=0, xmax=3,
+ymin=0, ymax=20,
+legend pos=north west,
+ymajorgrids=true,
+grid style=dashed,
+]
+
+\addplot[
+color=blue,
+mark=square,
+smooth
+]
+coordinates {
+(0.00,	0.00)(0.20,	0.00)(0.40,	0.00)(0.60,	1.00)(0.80,	3.50)(1.00,	7.00)(1.20,	8.50)(1.40,	11.50)(1.60,	15.00)(1.80,	17.50)(1.90,	18.50)
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\newpage
+
+\begin{table}[!h]
+	\centering
+	\caption{Выходные характеристики оптрона}
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			& $U_\text{ВЫХ}$ &  &  &  &  &  \\ \hline
+			$I_\text{ВХ}$ & 0 & 4,5 & 5 & 5,5 & 6 & 6,5 \\ \hline
+			0 & 0 & 0 & 0 & 0 & 2 & 2 \\ \hline
+			10 & 0 & 0 & 0 & 2 &  &  \\ \hline
+			20 & 0 & 0 & 1 &  &  &  \\ \hline
+			30 & 0 & 0 & 2 &  &  &  \\ \hline
+			40 & 0 & 0 &  &  &  &  \\ \hline
+			50 & 0 & 2 &  &  &  &  \\ \hline
+			60 & 0 & 4 &  &  &  &  \\ \hline
+			70 & 0 &  &  &  &  &  \\ \hline
+			80 & 0 &  &  &  &  &  \\ \hline
+			90 & 0 &  &  &  &  &  \\ \hline
+			100 & 0 &  &  &  &  &  \\ \hline
+			110 & 0 &  &  &  &  &  \\ \hline
+			120 & 0 &  &  &  &  &  \\ \hline
+			130 & 0 &  &  &  &  &  \\ \hline
+			140 & 0 &  &  &  &  &  \\ \hline
+			150 & 0 &  &  &  &  &  \\ \hline
+			160 & 0 &  &  &  &  &  \\ \hline
+			170 & 0 &  &  &  &  &  \\ \hline
+			180 & 0 &  &  &  &  &  \\ \hline
+			190 & 0 &  &  &  &  &  \\ \hline
+			200 & 2 &  &  &  &  &  \\ \hline
+		\end{tabular}
+\end{table}
+
+
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Выходные характеристика оптрона},
+	xlabel={$U_\text{ВЫХ}$, В},
+	ylabel={$I_\text{ВХ}$, мА },
+	xmin=-10, xmax=70,
+	ymin=-1, ymax=5,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot
+	coordinates {
+		(0,0)(10,0)(20,0)(30,0)(40,0)(50,2)(0,4)
+	};
+
+	\addplot
+	coordinates {
+		(0,0)(10,0)(20,1)(0,2)
+	};
+
+	\addplot
+	coordinates {
+		(0,0)(10,1)(0,2)
+	};
+
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+
+\newpage
+
+\begin{table}[!h]
+	\centering
+	\caption{Минимальный выходной ток}
+	\begin{tabular}{|c|c|}
+		\hline
+		$I_\text{вх}$, мА & $I_\text{вых\_мин}$, мА \\ \hline
+		2.5   & 4           \\ \hline
+		5     & 4           \\ \hline
+		7.5   & 6           \\ \hline
+		10    & 8           \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Минимальный выходной ток},
+	xlabel={$I_\text{вх}$, мА},
+	ylabel={$I_\text{вых\_мин}$, мА},
+	xmin=0, xmax=12,
+	ymin=0, ymax=12,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(2.5,	4)(5,	4)(7.5,	6)(10,	8)
+	};
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\newpage
+
+\begin{table}[!h]
+	\centering
+	\caption{Зависимость входного тока срабатывания от напряжения на
+		выходе оптрона}
+	\begin{tabular}{|c|c|}
+		\hline
+		$U_\text{вых}$, В & $I_\text{ср}$, мА \\ \hline
+		80     & 5     \\ \hline
+		90     & 5.5   \\ \hline
+		100    & 4.5   \\ \hline
+		110    & 4     \\ \hline
+		120    & 3.5   \\ \hline
+		160    & 3     \\ \hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость входного тока срабатывания от напряжения на
+		выходе оптрона},
+	xlabel={$U_\text{вых}$, В},
+	ylabel={$I_\text{ср}$, мА},
+	xmin=70, xmax=180,
+	ymin=2, ymax=6,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+(80,	5)(90,	5.5)(100,	4.5)(110,	4)(120,	3.5)(160,	3)
+	};
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+I_\text{ВЫХ\_УД} = 8 \text{ мА}
+\]
+
+\section{Вывод}
+
+В ходе работы произошло ознакомление с основными параметрами и характеристиками оптрона типа <<светоизлучающий диод - фототиристор>>.
+Графики, полученные в ходе работы, подтверждают теоретические сведения.
+

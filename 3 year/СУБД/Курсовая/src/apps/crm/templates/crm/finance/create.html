@@ -1,0 +1,28 @@
+{% extends 'crm/base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'crm:finance:create' %}"
+                  class="form-horizontal"
+                  method="post">
+            <legend>Новая финансовая операция</legend>
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group">
+                        {% include 'crm/includes/horizontal_form_field.html' with input=field %}
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-success">Создать
+                        </button>
+                        <a href="{% url 'crm:finance:list' %}"
+                           class="btn btn-danger">Отмена</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

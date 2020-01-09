@@ -1,0 +1,43 @@
+{% extends 'crm/list.html' %}
+
+{% block table %}
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Статус</th>
+                    <th>Отправитель</th>
+                    <th>Получатель</th>
+                    <th>Адрес получателя</th>
+                    <th>Дата доставки</th>
+                    <th>Период доставки</th>
+                    <th>Точное время доставки</th>
+                    <th>Полная стоимость</th>
+                    <th>Создан</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'crm:orders:detail' pk=order.pk %}">{{ order.order_id }}</a>
+                        </td>
+                        <td>{{ order.get_status_display }}</td>
+                        <td>{{ order.sender }}</td>
+                        <td>{{ order.receiver }}</td>
+                        <td>{{ order.receiver_address }}</td>
+                        <td>{{ order.delivery_date }}</td>
+                        <td>{{ order.get_delivery_time_period_display }}</td>
+                        <td>{{ order.exact_delivery_time|default_if_none:"" }}</td>
+                        <td align="right">{{ order.get_formatted_price }}</td>
+                        <td align="right">{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

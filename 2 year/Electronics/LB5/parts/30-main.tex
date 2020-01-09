@@ -1,0 +1,87 @@
+\chapter{Ход работы}
+
+\textbf{Цель работы}: провести модельное исследование фильтра нижних частот по схеме Саллека-Ки с использованием выбранных элементов.
+
+Исходные данные: условия (дано) из ДЗ и результаты расчетов
+
+\begin{figure}[h!]
+	\centering
+	\caption{Схема фильтра частот}
+	\includegraphics{images/1.png}
+\end{figure}
+
+
+\begin{figure}[h!]
+	\centering
+	\caption{Модель системы в OrCAD Capture}
+	\includegraphics{images/2.png}
+\end{figure}
+
+\chapter{Результаты моделирования}
+
+\begin{figure}[h!]
+	\centering
+	\caption{Входное напряжение (зеленый, В), выходное напряжение при 200 Гц (красный, В) }
+	\includegraphics{images/3.png}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\caption{Входное напряжение (зеленый, В), выходное напряжение при 500 Гц (красный, В)}
+	\includegraphics{images/4.png}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\caption{Входное напряжение (зеленый, В), выходное напряжение при 1000 Гц (красный, В)}
+	\includegraphics{images/5.png}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\caption{Входное напряжение (зеленый, В), выходное напряжение при 50 Гц (красный, В)}
+	\includegraphics{images/6.png}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\caption{АЧХ}
+	\includegraphics{images/7.png}
+\end{figure}
+
+
+\chapter{Измерения в OrCAD Capture}
+
+Максимальное выходное напряжение, В:   				          
+
+\[
+ U_{OUT\_MAX\_EXP}=7.9839
+ \]
+
+Минимальное выходное напряжение, В:
+
+\[
+U_{OUT\_MIN\_EXP}=-7.9839
+\]
+
+\chapter{Вычисление погрешностей}
+
+Погрешность $U_{OUT\_MAX}$ при 200 Гц:
+\[
+\left| \frac{U_{OUT\_MAX\_EXP}-U_{OUT\_MAX}}{U_{OUT\_MAX}} \right|  =0,3\%
+\]
+
+Погрешность спада:
+
+\[
+\left| \frac{f_{EXP}-f}{f}\right| = 7.5 \%
+\]
+
+\chapter{Вывод}
+
+В ходе выполнения лабораторной работы было был промоделирован фильтра нижних частот по схеме Саллека-Ки, построены графики изменения величин в OrCAD PSpice, измерены необходимые величины по этим графикам и рассчитаны погрешности.
+
+Вычисленные погрешности не превышают отклонение в 10\% от расчетных значений, что свидетельствует о корректности выполнения работы и соответствии модели расчетам.
+
+
+

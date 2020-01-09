@@ -1,0 +1,41 @@
+{% extends 'crm/list.html' %}
+{% load widget_tweaks %}
+{% block table_controls %}
+  <div class="col-md-12">
+    <form action="." method="post" class="form-inline" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="{{ form.file.auto_id }}">{{ form.file.label }}</label>
+        {{ form.file|add_class:"form-control" }}
+      </div>
+      <button type="submit" class="btn btn-default">Загрузить файл</button>
+    </form>
+  </div>
+
+{% endblock %}
+
+{% block table %}
+  <div class="row">
+    <div class="col-md-12">
+
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Файл</th>
+          <th>Ссылка</th>
+          <th>Создан</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for file in files %}
+          <tr>
+            <td>{{ file.filename }}</td>
+            <td><a href="{{ file.get_full_url }}">{{ file.get_full_url }}</a></td>
+            <td align="right">{{ file.created_at|date:"d/m/Y H:i" }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

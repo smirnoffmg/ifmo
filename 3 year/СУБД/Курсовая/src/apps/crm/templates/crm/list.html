@@ -1,0 +1,65 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+  <div class="row table-controls">
+    {% block table_controls %}
+      <div class="col-md-4">
+        <div class="btn-group" role="group" aria-label="...">
+          {% if create_url %}
+            <a href="{{ create_url }}" class="btn btn-info" id="create">
+              <i class="glyphicon glyphicon-plus"></i>&nbsp;Добавить
+            </a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-md-8">
+        <form action="." method="get" class="form-horizontal">
+          <div class="input-group">
+            <input name="query"
+                   type="text"
+                   class="form-control"
+                   placeholder="Поисковая строка"
+                   value="{{ query|default_if_none:"" }}">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+                Найти
+            </button>
+          </span>
+          </div>
+        </form>
+      </div>
+    {% endblock %}
+  </div>
+
+  {% block table %}
+  {% endblock %}
+
+  {% if is_paginated %}
+    <div class="row">
+      <div class="col-md-12">
+        <nav>
+          <ul class="pager">
+            {% if page_obj.has_previous %}
+              <li>
+                <a href="{{ list_url }}?page={{ page_obj.previous_page_number }}">Назад</a>
+              </li>
+            {% endif %}
+            {% for page in page_obj.paginator.page_range %}
+              <li {% ifequal page page_obj.number %}class="disabled"{% endifequal %}>
+                <a href="{{ list_url }}?page={{ page }}">{{ page }}</a>
+              </li>
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <li>
+                <a href="{{ list_url }}?page={{ page_obj.next_page_number }}">Вперёд</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  {% endif %}
+
+{% endblock %}

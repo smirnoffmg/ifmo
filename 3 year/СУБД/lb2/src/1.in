@@ -1,0 +1,23 @@
+mysql> insert into bouquets (id, title, description, price) values (1, "bouquet 1", "good bouquet", 1500.0);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into bouquets (id, title, description, price) values (2, "bouquet 2", "good bouquet", 1700.0);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into bouquets (id, title, description, price) values (3, "bouquet 3", "fine bouquet", 2000.0);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into bouquets (id, title, description, price) values (4, "bouquet 4", "bad bouquet", 1000.0);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into bouquets (id, title, description, price) values (5, "bouquet 5", "ordinal bouquet", 1200.0);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into bouquet_photos (id, photo, bouquets_id) values (1, "1.jpg", 1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into bouquet_photos (id, photo, bouquets_id) values (2, "1.jpg", 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bouquet_photos (id, photo, bouquets_id) values (3, "2.jpg", 3);
+Query OK, 1 row affected (0.16 sec)

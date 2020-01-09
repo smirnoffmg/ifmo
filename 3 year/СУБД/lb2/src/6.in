@@ -1,0 +1,21 @@
+mysql> select bouquets.title, bouquet_photos.photo from bouquets cross join bouquet_photos;
++-----------+---------+
+| title     | photo   |
++-----------+---------+
+| bouquet 1 | new.png |
+| bouquet 1 | new.png |
+| bouquet 1 | 2.jpg   |
+| bouquet 2 | new.png |
+| bouquet 2 | new.png |
+| bouquet 2 | 2.jpg   |
+| bouquet 3 | new.png |
+| bouquet 3 | new.png |
+| bouquet 3 | 2.jpg   |
+| bouquet 4 | new.png |
+| bouquet 4 | new.png |
+| bouquet 4 | 2.jpg   |
+| bouquet 5 | new.png |
+| bouquet 5 | new.png |
+| bouquet 5 | 2.jpg   |
++-----------+---------+
+15 rows in set (0.00 sec)

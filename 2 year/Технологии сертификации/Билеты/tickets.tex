@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+
+%%% Работа с русским языком
+\usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
+\usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт документа
+\setsansfont{Comic Sans MS}                    %% задаёт шрифт без засечек
+\setmonofont{Courier New}
+\usepackage{indentfirst}
+\frenchspacing
+
+\usepackage{icomma}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+\usepackage{geometry} % Простой способ задавать поля
+\geometry{top=25mm}
+\geometry{bottom=35mm}
+\geometry{left=35mm}
+\geometry{right=20mm}
+%
+
+\graphicspath{
+	{./images/}
+}
+
+%\usepackage{mar}
+
+\usepackage{caption}
+\begin{document}
+\include{1/ticket}
+\include{2/ticket}
+\include{3/ticket}
+\include{4/ticket}
+\include{5/ticket}
+\include{6/ticket}
+\include{7/ticket}
+\include{8/ticket}
+\include{9/ticket}
+\include{10/ticket}
+\include{11/ticket}
+\include{12/ticket}
+\include{13/ticket}
+\include{14/ticket}
+\include{15/ticket}
+\include{16/ticket}
+\include{17/ticket}
+\include{18/ticket}
+\include{19/ticket}
+\include{20/ticket}
+\end{document}

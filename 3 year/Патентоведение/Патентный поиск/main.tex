@@ -1,0 +1,29 @@
+%!TEX TS-program = xelatex
+
+\documentclass[a4paper,12pt]{article}
+\include{preamble.inc}
+\include{vars}	
+
+
+\begin{document} % конец преамбулы, начало документа	
+	\include{title}
+	\includepdf[pages={1,14,15}]{patents/1}
+	\includepdf[pages={1,15,16}]{patents/2}
+	\includepdf[pages={1,6}]{patents/3}
+	\includepdf[pages={1,7}]{patents/4}
+	\includepdf[pages={1,8}]{patents/5}
+	\includepdf[pages={1,18,19,20}]{patents/6}
+	\includepdf[pages={1,10}]{patents/7}
+	\includepdf[pages={1,21,22,23}]{patents/8}
+	\includepdf[pages={1,6}]{patents/9}							
+	\includepdf[pages={1,20,21}]{patents/10}	
+	\setcounter{page}{2}
+	% \tableofcontents	
+
+%  \include{intro}
+ \include{comparison}
+%  \include{final}
+\end{document} % конец документа
+
+
+

@@ -1,0 +1,42 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{tikz}
+
+\usetikzlibrary{circuits}
+\usetikzlibrary{circuits.ee}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+
+
+
+
+\begin{document}
+	\begin{figure}[!h]
+		\caption{}
+		\begin{center}
+			\begin{tikzpicture}[circuit ee IEC]
+			\node (R1) at (2,5) [resistor={info = $R_1$}] {};
+			\node (R2) at (1,4) [point up, resistor={info = $R_2$}] {};
+			\node (R7) at (4,5) [resistor={info = $R_7$}] {};
+			\node (L9) at (5,4) [point down, inductor={info = $L_9$}] {};
+			\node (E) at (1,2) [point up, voltage source={info = $E$}] {};
+			\draw (E) -- (R2) -- (1, 5) -- (R1) -- (R7) -- (5,5) --(L9) -- (5,1) -- (1,1) -- (E) ;
+			\draw (3,1) -- (3, 5);
+			\end{tikzpicture}
+		\end{center}
+	\end{figure}
+\textit{Дано}: $R_1=R_2=R_7=200$ [Ом], $L_9=0,2$ [Гн], $E=270$ [В].
+\textit{Найти}: $i(t), u(t)$ классическим методом расчета.
+\end{document}

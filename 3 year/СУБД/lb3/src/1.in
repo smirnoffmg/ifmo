@@ -1,0 +1,22 @@
+CREATE PROCEDURE `agg_price`()
+BEGIN
+
+DECLARE AVG_PRICE float;
+
+CREATE TABLE IF NOT EXISTS agg_prices (
+    id INT NOT NULL,
+    title VARCHAR(255),
+    price FLOAT,
+    PRIMARY KEY (id)
+);
+
+SELECT 
+    AVG(price)
+INTO AVG_PRICE FROM
+    bouquets;
+
+INSERT INTO agg_prices (id, title, price) VALUES(1, "avg", AVG_PRICE) 
+	ON DUPLICATE KEY UPDATE  id=1, title="avg", price=AVG_PRICE;
+
+
+END

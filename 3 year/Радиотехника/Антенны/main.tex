@@ -1,0 +1,30 @@
+%!TEX TS-program = xelatex
+
+\documentclass[a4paper,12pt]{article}
+\include{preamble.inc}
+\include{vars}	
+
+%\addbibresource{biblio.bib}
+\addbibresource{common.bib}
+
+
+\begin{document} % конец преамбулы, начало документа
+	\include{title}
+	\setcounter{page}{2}
+	\tableofcontents
+		
+	\include{intro}
+	\include{principle}
+	\include{forms}
+	\include{vibrators}
+%	\include{fractal}
+	\include{charge}	
+	\include{outro}
+
+	\addcontentsline{toc}{section}{Список литературы}
+	\nocite{*}
+	\printbibliography
+\end{document} % конец документа
+
+
+

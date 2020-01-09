@@ -1,0 +1,207 @@
+\section{Ход работы}
+
+
+\subsection{Измерения}
+
+\begin{table}[H]
+	\centering
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|c|c|c|c|c|c|c|}
+			\hline
+			Резистор  & Номинал & 24     & 40     & 60     & 80     & 100    \\ \hline
+			МЛТ       & 180 Ом  & 188 Ом & 188 Ом & 188 Ом & 188 Ом & 190 Ом \\ \hline
+			С5-5 2Вт & 62 Ом   & 61 Ом  & 62 Ом  & 61 Ом  & 61 Ом  & 61 Ом  \\ \hline
+			SCK-203    & 20 Ом   & 19 Ом  & 13 Ом  & 9 Ом   & 5 Ом   & 3 Ом   \\ \hline
+			УЛМ       & 750 Ом  & 737 Ом & 735 Ом & 733 Ом & 731 Ом & 725 Ом \\ \hline
+			ВС-2      & 200 Ом  & 202 Ом & 201 Ом & 200 Ом & 199 Ом & 198 Ом \\ \hline
+		\end{tabular}%
+	}
+\end{table}
+
+\subsection{МЛТ}
+
+Резисторы МЛТ, ОМЛТ постоянные, непроволочные, неизолированные, теплостойкие.
+
+Предназначены для работы в цепях постоянного, переменного и импульсного тока в качестве элементов
+навесного монтажа.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость сопротивления от температуры для МЛТ},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$R$, Ом },
+	xmin=0, xmax=110,
+	ymin=170, ymax=200,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 188) (40, 188) (60, 188) (80, 188) (100, 190)
+	};
+	
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{МЛТ}} = \frac{190-188}{ 190 \cdot (100-40)} \approx 0.0001
+\]
+
+
+\subsection{С5-5 2Вт}
+Резисторы С5-5 постоянные проволочные.
+Прецизионные и общего применения, изолированные, для навесного монтажа. 
+Предназначены для работы в цепях постоянного и переменного токов с частотой до 1 кГц. 
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость сопротивления от температуры для С5-5 2Вт},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$R$, Ом },
+	xmin=0, xmax=110,
+	ymin=60, ymax=63,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 62) (40, 61) (60, 62) (80, 61) (100, 61)
+	};
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{С5-5 2Вт}} = \frac{62-61}{ 62 \cdot (60-40)} \approx 0.0008
+\]
+
+\subsection{SCK-203}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость сопротивления от температуры для SCK-203},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$R$, Ом },
+	xmin=0, xmax=110,
+	ymin=0, ymax=21,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 19) (40, 13) (60, 9) (80, 5) (100, 3)
+	};
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{SCK-203}} = \frac{3-13}{ 3 \cdot (100-40)} \approx -0.06
+\]
+
+\subsection{УЛМ}
+
+С таким названием с конца 50-х по начало 70-х годов выпускались резисторы \textbf{ВС-0.125} (надо отметить, что при этом одновременно были и резисторы с названием \textbf{ВС}).
+
+Они предназначены для использования в малогабаритной аппаратуре, например, с полупроводниковыми приборами
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость сопротивления от температуры для УЛМ},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$R$, Ом },
+	xmin=0, xmax=110,
+	ymin=720, ymax=740,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 737) (40, 735) (60, 733) (80, 731) (100, 725)
+	};
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{УЛМ}} = \frac{725-735}{ 725 \cdot (100-40)} \approx -0.0002
+\]
+
+\subsection{ВС-2}
+
+Резисторы постоянные углеродистые ВС предназначены для работы в цепях постоянного, переменного и импульсного тока в радиотехнической и электронной аппаратуре.
+
+Резисторы предназначены также для работы в условиях сухого и влажного тропического климата.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\begin{axis}[
+	title={Зависимость сопротивления от температуры для ВС-2},
+	xlabel={$t$, $^\circ C$},
+	ylabel={$R$, Ом },
+	xmin=0, xmax=110,
+	ymin=197, ymax=203,
+	legend pos=north west,
+	ymajorgrids=true,
+	grid style=dashed,
+	]
+	
+	\addplot[
+	color=blue,
+	mark=square,
+	smooth
+	]
+	coordinates {
+		(24, 202) (40, 201) (60, 200) (80, 199) (100, 198)
+	};
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\[
+\alpha_{c_\text{ВС-2}} = \frac{198-201}{ 198 \cdot (100-40)} \approx -0.0003
+\]
+
+
+
+\section{Вывод}
+
+Было проведено исследование зависимости сопротивления резисторов от температуры и определение ТКС различных типов резисторов.
+
+Графики, полученные в ходе работы, подтверждают теоретические сведения.
+

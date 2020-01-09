@@ -1,0 +1,173 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{backgrounds}
+
+
+
+
+\begin{document}
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[framed]
+	\begin{axis}[
+	title=$\varphi(f)$,
+	xlabel={$f$,Гц},
+	ylabel={$\varphi, {}^\circ$},
+	grid=major,
+	width=13cm,
+	legend pos = north west
+	]
+	\legend{Эксперимент, Расчёт}
+	\addplot[solid, smooth] coordinates {
+		(300, -81)
+		(400, -72)
+		(500, -45)
+		(550, 0)
+		(600, 42)
+		(700,69)
+		(800,75)
+	};
+	\addplot[dashed, smooth] coordinates {
+		(300, -81.45)
+		(400, -73.34)
+		(500, -44.33)
+		(550, 0.63)
+		(600, 42.39)
+		(700,68.45)
+		(800,75.9)
+	};
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[framed]
+	\begin{axis}[
+	title=$I(f)$,
+	xlabel={$f$,Гц},
+	ylabel={$I$, А},
+	grid=major,
+	width=13cm,
+	legend pos = north west
+	]
+	\legend{Эксперимент, Расчёт}
+	\addplot[solid, smooth] coordinates {
+		(300, 0.04)
+		(400, 0.07)
+		(500, 0.18)
+		(550, 0.25)
+		(600, 0.18)
+		(700,0.09)
+		(800,0.06)
+	};
+	\addplot[dashed, smooth] coordinates {
+		(300, 0.04)
+		(400, 0.07)
+		(500, 0.18)
+		(550, 0.25)
+		(600, 0.18)
+		(700,0.09)
+		(800,0.06)
+	};
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\begin{tikzpicture}[framed]
+	\begin{axis}[
+	title=$U(f)$,
+	xlabel={$f$,Гц},
+	ylabel={$U$, В},
+	grid=major,
+	width=13cm,
+	legend pos = north west
+	]
+		\legend{Эксперимент, Расчёт}
+	% U_k
+	\addplot[solid, smooth] coordinates {
+		(300, 5)
+		(400, 10)
+		(500, 34)
+		(550, 52)
+		(600, 42)
+		(700, 24)
+		(800, 18)
+	} node[above] {$U_k$};
+
+	\addplot[dashed, smooth] coordinates {
+		(300, 4.35)
+		(400, 11.02)
+		(500, 34.11)
+		(550, 52.35)
+		(600, 42.11)
+		(700, 24.38)
+		(800, 18.45)
+	};
+
+	% U_c
+	\addplot[solid, smooth] coordinates {
+		(300, 15)
+		(400, 20)
+		(500, 40)
+		(550, 52)
+		(600, 34)
+		(700, 14)
+		(800, 8)
+	} node[above] {$U_c$};
+	
+	\addplot[dashed, smooth] coordinates {
+		(300, 14.09)
+		(400, 20.39)
+		(500, 40.68)
+		(550, 51.7)
+		(600, 35)
+		(700, 14.92)
+		(800, 8.66)
+	};
+
+	% U_r
+	\addplot[solid, smooth] coordinates {
+		(300, 0.5)
+		(400, 1)
+		(500, 2)
+		(550, 2.4)
+		(600, 2)
+		(700, 1)
+		(800, 0.5)
+	} node[above] {$U_R$};
+	
+	\addplot[dashed, smooth] coordinates {
+		(300, 0.37)
+		(400, 0.72)
+		(500, 1.79)
+		(550, 2.5)
+		(600, 1.85)
+		(700, 0.92)
+		(800, 0.61)
+	};
+
+
+	
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\end{document}

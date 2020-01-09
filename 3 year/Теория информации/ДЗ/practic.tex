@@ -1,0 +1,152 @@
+\section{Практика}
+
+
+Создадим файл с псевдослучайным содержимым с помощью программы из листинга №1.
+
+Сожмём файлы, используя стандартные архиваторы среды Linux:
+
+\begin{lstlisting}
+    zip random.zip random.txt
+    tar -zcvf random.tar.gz random.txt
+    tar -jcvf random.tar.bz2 random.txt
+\end{lstlisting}
+
+Для каждого файла найдём плотность распределения с помощью программы из листинга №2.
+
+
+\begin{figure}[H]
+    \caption{Распределение в файле random.txt}
+    \label{fig:1}
+    \centering
+    \resizebox {.8\textwidth} {!} {
+\begin{tikzpicture}
+    \pgfplotstableread{src/d_random.csv}\data
+    \pgfplotstablegetrowsof{\data}
+    \pgfmathsetmacro{\N}{\pgfplotsretval}
+    \begin{axis}[
+        ybar,
+        yticklabel={%
+            \pgfmathparse{\tick*100}%
+            \pgfmathprintnumber{\pgfmathresult}\,\%},
+    ]
+        \addplot+ [
+            hist,
+            y filter/.expression={y/\N},
+        ] table [y index=0] {\data};
+    \end{axis}
+\end{tikzpicture}
+}
+\end{figure}
+
+\begin{figure}[H]
+    \caption{Распределение в файле random.tar.bz2}
+    \label{fig:2}
+    \centering
+    \resizebox {.8\textwidth} {!} {
+
+    \begin{tikzpicture}
+        \pgfplotstableread{src/d_random_bz2.csv}\data
+        \pgfplotstablegetrowsof{\data}
+        \pgfmathsetmacro{\N}{\pgfplotsretval}
+        \begin{axis}[
+            ybar,
+            yticklabel={%
+                \pgfmathparse{\tick*100}%
+                \pgfmathprintnumber{\pgfmathresult}\,\%},
+        ]
+    
+            \addplot+ [
+                hist,
+                y filter/.expression={y/\N},
+            ] table [y index=0] {\data};
+        \end{axis}
+    \end{tikzpicture}
+    }
+    \end{figure}
+
+\begin{figure}[H]
+    \caption{Распределение в файле random.tar.gz}
+    \label{fig:3}
+    \centering
+    \resizebox {.8\textwidth} {!} {
+
+    \begin{tikzpicture}
+        \pgfplotstableread{src/d_random_gz.csv}\data
+        \pgfplotstablegetrowsof{\data}
+        \pgfmathsetmacro{\N}{\pgfplotsretval}
+        \begin{axis}[
+            ybar,
+            yticklabel={%
+                \pgfmathparse{\tick*100}%
+                \pgfmathprintnumber{\pgfmathresult}\,\%},
+        ]
+    
+            \addplot+ [
+                hist,
+                y filter/.expression={y/\N},
+            ] table [y index=0] {\data};
+        \end{axis}
+    \end{tikzpicture}
+    }
+\end{figure}
+
+\begin{figure}[H]
+    \caption{Распределение в файле random.zip}
+    \label{fig:4}
+    \centering
+    \resizebox {.8\textwidth} {!} {
+
+    \begin{tikzpicture}
+        \pgfplotstableread{src/d_random_zip.csv}\data
+        \pgfplotstablegetrowsof{\data}
+        \pgfmathsetmacro{\N}{\pgfplotsretval}
+        \begin{axis}[
+            ybar,
+            yticklabel={%
+                \pgfmathparse{\tick*100}%
+                \pgfmathprintnumber{\pgfmathresult}\,\%},
+        ]
+    
+            \addplot+ [
+                hist,
+                y filter/.expression={y/\N},
+            ] table [y index=0] {\data};
+        \end{axis}
+    \end{tikzpicture}
+    }
+\end{figure}
+
+Сравним получившиеся файлы, используя программу для расчёта энтропии из листинга №3.
+
+\begin{table}[!h]
+    \caption{Сравнение файлов}
+    \label{tbl:1}
+    \centering
+
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Название & Размер, байт & Энтропия & Степень сжатия \\ \hline
+        random.txt & 1024 & 5.98258 & 100\% \\ \hline
+        random.zip & 973 & 7.55285 & 95\% \\ \hline
+        random.tar.bz2 & 1017 & 7.78326 & 99 \% \\ \hline
+        random.tar.gz & 955 & 7.75808 & 93\% \\ \hline
+
+    \end{tabular}
+\end{table}
+
+
+\section{Исходный код}
+
+
+\begin{figure}[!h]
+    \lstinputlisting[language=C,caption=Исходный код для генерации файла со случайным содержимым.]{src/generator.cpp}
+\end{figure}
+  
+\begin{figure}[!h]
+    \lstinputlisting[language=C,caption=Исходный код для расчёта распределения в указанном файле.]{src/density.cpp}
+\end{figure}
+
+
+\begin{figure}[!h]
+    \lstinputlisting[language=C,caption=Исходный код для расчёта энтропии в указанном файле.]{src/entropy.cpp}
+\end{figure}

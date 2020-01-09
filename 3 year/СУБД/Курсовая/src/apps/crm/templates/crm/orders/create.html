@@ -1,0 +1,193 @@
+{% extends 'crm/base.html' %}
+{% load widget_tweaks %}
+{% load static from staticfiles %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'crm/css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'crm/css/bootstrap-datepicker3.min.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'crm:orders:create' %}"
+                  class="form-horizontal"
+                  method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <td>Отправитель:</td>
+                                <td>{{ form.sender|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Номер отправителя:</td>
+                                <td>{{ form.sender_phone|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail отправителя:</td>
+                                <td>{{ form.sender_email|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Адрес отправителя:</td>
+                                <td>{{ form.sender_address|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Комментарий отправителя:</td>
+                                <td>{{ form.sender_comment|add_class:"form-control" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <td>Получатель:</td>
+                                <td>{{ form.receiver|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Номер получателя:</td>
+                                <td>{{ form.receiver_phone|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>E-mail получателя:</td>
+                                <td>{{ form.receiver_email|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Адрес получателя:</td>
+                                <td>{{ form.receiver_address|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Комментарий получателя:</td>
+                                <td>{{ form.receiver_comment|add_class:"form-control" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center">Наименование</th>
+                                <th style="text-align: center">Цвет</th>
+                                <th style="text-align: center">Количество</th>
+                                <th style="text-align: center">Цена за единицу</th>
+                                <th style="text-align: center">Полная стоимость позиции</th>
+                                <th style="text-align: center">Действия</th>
+                            </tr>
+                            </thead>
+                            <tbody id="basket">
+                            {% comment %}
+                            {% for item in request.basket.items.all %}
+                                <tr>
+                                    <td>{{ item.content_object }}</td>
+                                    <td>
+                                        {% if item.color %}
+                                            {{ item.color }}
+                                            <span style="background-color: {{ item.color.color }};">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ item.quantity }}</td>
+                                    <td>{{ item.get_price }}&nbsp;₽</td>
+                                    <td>{{ item.get_full_price }}&nbsp;₽</td>
+                                    <td>
+                                        <a href="#" class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-minus"></i>
+
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% endcomment %}
+                            <tr>
+                                <td colspan="7">
+                                    <a href="#" class="btn btn-success" data-add-position="{% url 'crm:orders:add-basket-position' %}">
+                                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Добавить
+                                                                                позицию
+
+                                    </a>
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <td>Статус:</td>
+                                <td>{{ form.status|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Оплачен:</td>
+                                <td>
+                                    {{ form.is_payed }}
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Тип оплаты:</td>
+                                <td>{{ form.payment_type|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Дата доставки:</td>
+                                <td>{{ form.delivery_date|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Период доставки:</td>
+                                <td>{{ form.delivery_time_period|add_class:"form-control" }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Точное время доставки:</td>
+                                <td>{{ form.exact_delivery_time|add_class:"form-control" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped">
+                            <tr>
+                                <td>Тип открытки:</td>
+                                <td>{{ form.card_type|add_class:"form-control" }}</td>
+                            </tr>
+                            <tr>
+                                <td>Текст открытки:</td>
+                                <td>{{ form.card_text|add_class:"form-control" }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">
+                                <i class="glyphicon glyphicon-ok"></i>&nbsp;Создать
+                            </button>
+                            <a href="{% url 'crm:orders:list' %}"
+                               class="btn btn-danger">
+                                <i class="glyphicon glyphicon-remove"></i>&nbsp;Отмена
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'crm/js/vendor/select2.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'crm/js/vendor/bootstrap-datepicker.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'crm/js/app/create_order.js' %}" type="text/javascript"></script>
+{% endblock %}

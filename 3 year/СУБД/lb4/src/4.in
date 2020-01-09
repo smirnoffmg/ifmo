@@ -1,0 +1,1 @@
+mysql -u root -p new_flowers < dump.sql

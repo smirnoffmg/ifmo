@@ -1,0 +1,66 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{circuits}
+\usetikzlibrary{circuits.ee}
+\usetikzlibrary{circuits.ee.IEC}
+\usetikzlibrary{arrows}
+\usetikzlibrary{patterns}
+\usetikzlibrary{backgrounds}
+
+
+
+\begin{document}
+	\begin{figure}[!h]
+		\begin{center}
+		\begin{tikzpicture}[framed]
+		\draw [->](0,-3cm)--(0,3cm) node[right]{$+j$};
+		\draw [->](-3cm,0)--(4cm,0) node[anchor=north]{$+1$};
+		\draw [->](0,0) -- (1.366cm,0.099cm) node[anchor=north]{$I_1$};
+		\draw [->](0,0) -- (0.611cm,-1.225cm) node[anchor=north]{$I_2$};
+		\draw [->](0,0) -- (0.755cm,1.319cm) node[anchor=north]{$I_3$};						
+		
+		% draw ticks and its labels
+		\foreach \x/\xtext in {-2/-2,  -1/-1,  1/1, 2/2}
+		{\draw (\x cm,1pt ) -- (\x cm,-1pt ) node[anchor=north] {$\xtext$};}
+		\foreach \y/\ytext in {-2/-2,  -1/-1,  1/1, 2/2}
+		{\draw (1pt,\y cm) -- (-1pt ,\y cm) node[anchor=east] {$\ytext$};}
+		\end{tikzpicture}
+		\end{center}
+	\end{figure}
+
+	\begin{figure}[!h]
+	\begin{center}
+		\begin{tikzpicture}[framed]
+		\draw [->](0,-8em)--(0,8em) node[right]{$+j$};
+		\draw [->](-3em,0)--(22em,0) node[anchor=north]{$+1$};
+		\draw [->](0em,0em) -- (4.17:8.22em) node[anchor=north]{$U_1$};
+		\draw [->](0em,0em) -- (-85.43:5.48em) node[anchor=north]{$U_2$};
+		\draw [->](0em,0em) -- (25.51:10.96em) node[anchor=north]{$U_3$};		
+		\draw [->](0em,0em) -- (-0.075:18.404em) node[anchor=north]{$E$};				
+		
+		% draw ticks and its labels
+		\foreach \x/\xtext in { -1/-1,  1/1, 2/2, 5/5, 10/10, 15/15, 20/20}
+		{\draw (\x em,1pt ) -- (\x em,-1pt ) node[anchor=north] {$\xtext$};}
+		\foreach \y/\ytext in {-7/-7, -5/-5, -2/-2, 1/1, 2/2, 7/7}
+		{\draw (1pt,\y em) -- (-1pt ,\y em) node[anchor=east] {$\ytext$};}
+		
+		
+		\end{tikzpicture}
+	\end{center}
+\end{figure}
+
+\end{document}

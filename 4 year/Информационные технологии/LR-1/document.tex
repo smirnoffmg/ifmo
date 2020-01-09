@@ -1,0 +1,38 @@
+% !TeX program = xelatex
+
+%%% Загружаем заголовочный файл, который хранит все настройки и все
+%%% подгружаемые пакеты
+\newcommand{\No}{\textnumero}
+
+\input{input/header.tex}
+
+%%% Загружаем настройки пакета eskdx, там нужно заполнить информацию
+%%% о документе - ФИО авторов, название документов и т.п.
+\input{input/eskdx.tex}
+
+\begin{document}
+
+%%% Делаем титульник
+\maketitle
+
+%%% Делаем содержание
+\tableofcontents
+
+\include{parts/1-intro}
+
+\include{parts/3-base}
+\include{parts/4-goal}
+\include{parts/5-requirements}
+\include{parts/6-indicators}
+\include{parts/7-stages}
+\include{parts/8-control}
+
+%%% Далее выводим библиографию
+%%% Исправляем ошибку библиографии - «кавычка перед тире»
+%%% http://ru-tex.livejournal.com/105178.html?thread=801498
+\catcode`"\active\def"{\relax}
+\bibliographystyle{gost780s}
+%\bibliography{bibliography}{}
+%%% Если пропадают инициалы, смотрите сюда:
+%%% http://plumbum-blog.blogspot.com/2010/10/bibtex-miktex-gost780s.html
+\end{document}

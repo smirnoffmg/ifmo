@@ -1,0 +1,8 @@
+mysql> select * from bouquet_photos inner join bouquets on bouquet_photos.bouquets_id=bouquets.id where bouquets.price>1500;
++----+---------+-------------+----+-----------+--------------+-------+
+| id | photo   | bouquets_id | id | title     | description  | price |
++----+---------+-------------+----+-----------+--------------+-------+
+|  2 | new.png |           2 |  2 | bouquet 2 | good bouquet |  1700 |
+|  3 | 2.jpg   |           3 |  3 | bouquet 3 | fine bouquet |  2000 |
++----+---------+-------------+----+-----------+--------------+-------+
+2 rows in set (0.00 sec)

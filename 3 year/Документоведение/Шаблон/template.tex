@@ -1,0 +1,70 @@
+%!TEX TS-program = xelatex
+
+% Этот шаблон документа разработан в 2014 году
+% Данилом Фёдоровых (danil@fedorovykh.ru) 
+% для использования в курсе 
+% <<Документы и презентации в \LaTeX>>, записанном НИУ ВШЭ
+% для Coursera.org: http://coursera.org/course/latex .
+% Исходная версия шаблона --- 
+% https://www.writelatex.com/coursera/latex/5.2.2
+
+\documentclass[14pt]{report}
+
+%%% Работа с русским языком
+\usepackage[english,russian]{babel}   %% загружает пакет многоязыковой вёрстки
+\usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman} %% задаёт основной шрифт документа
+\setsansfont{Comic Sans MS}                    %% задаёт шрифт без засечек
+\setmonofont{Courier New}
+
+%%% Страница
+\usepackage{extsizes} % Возможность сделать 14-й шрифт
+
+\usepackage{geometry}
+\geometry{
+	paperwidth=210mm,
+	paperheight=297mm,
+	left=20mm,
+	top=3mm,
+	right=10mm,
+	bottom=3mm
+}
+
+%\usepackage{setspace} % Интерлиньяж
+%\onehalfspacing % Интерлиньяж 1.5
+%\doublespacing % Интерлиньяж 2
+%\singlespacing % Интерлиньяж 1
+
+\usepackage{minibox}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage[absolute]{textpos}
+\usepackage{tikz}
+
+\begin{document} % конец преамбулы, начало документа
+	\noindent{
+		\begin{tikzpicture}
+		\draw(0,0)[dashed] rectangle +(11, 1.7);
+		\draw(11,0)[dashed] rectangle +(3, 1.7);
+		\draw(14,0)[dashed] rectangle +(4, 1.7);
+		\draw(0,1.7)[dashed] rectangle +(18, 2.2);
+		\draw(0,3.9)[dashed] rectangle +(18, 2);
+		\draw(0,5.9)[dashed] rectangle +(18, 12);
+		\draw(0, 17.9)[dashed] rectangle +(18, 1.8);
+		
+		\draw(0, 19.7)[dashed] rectangle +(7.5, 1.8);
+		\draw(0, 21.5)[dashed] rectangle +(7.5, 2.2);
+		\draw(0, 23.7)[dashed] rectangle +(7.5, 3.4);
+		
+		\draw(10.5, 19.7)[dashed] rectangle +(7.5, 7.4);
+		
+		\draw(0, 27.1)[dashed] rectangle +(18, 1.7);
+		
+		\draw(0,0) rectangle +(18, 28.8);
+		
+		
+		\end{tikzpicture}
+	}
+\end{document} % конец документа
+

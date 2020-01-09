@@ -1,0 +1,8 @@
+mysql> select * from bouquets where price > 1500;
++----+-----------+--------------+-------+
+| id | title     | description  | price |
++----+-----------+--------------+-------+
+|  2 | bouquet 2 | good bouquet |  1700 |
+|  3 | bouquet 3 | fine bouquet |  2000 |
++----+-----------+--------------+-------+
+2 rows in set (0.00 sec)

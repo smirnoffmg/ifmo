@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static from staticfiles %}
+{% load activeurl %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Цветочная мастерская | CRM</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'crm/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'crm/css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'crm/css/styles.css' %}" rel="stylesheet">
+    {% block extra_css %}
+    {% endblock %}
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button"
+                    class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar"
+                    aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'crm:dashboard' %}">CRM</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+
+            {% activeurl css_class="active" menu="no" %}
+            <ul class="nav navbar-nav">
+                <li><a href="{% url 'crm:orders:list' %}">Заказы</a></li>
+                <li><a href="{% url 'crm:customers:list' %}">Клиенты</a></li>
+                <li><a href="{% url 'crm:finance:list' %}">Деньги</a></li>
+                <li><a href="{% url 'crm:files:list' %}">Файлы</a></li>
+            </ul>
+            {% endactiveurl %}
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{% static 'crm/js/vendor/jquery.min.js' %}"></script>
+<script src="{% static 'crm/js/vendor/bootstrap.min.js' %}"></script>
+{% block extra_js %}
+{% endblock %}
+</body>
+</html>

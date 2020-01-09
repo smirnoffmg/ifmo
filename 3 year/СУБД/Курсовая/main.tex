@@ -1,0 +1,28 @@
+%!TEX TS-program = xelatex
+
+\documentclass[a4paper,14pt]{article}
+\include{preamble.inc}
+\include{listings.inc}
+\include{vars}	
+
+\addbibresource{common.bib}
+\addbibresource{biblio.bib}
+
+\begin{document} % конец преамбулы, начало документа
+	\setcounter{page}{2}
+	\tableofcontents
+	\include{intro}
+	\include{ch1}	
+	\include{ch2}		
+	\include{conc}
+	
+	\addcontentsline{toc}{section}{Список литературы}
+	\nocite{*}
+	\printbibliography
+	\include{appendixA}
+	\include{appendixB}
+	\include{appendixC}
+\end{document} % конец документа
+
+
+

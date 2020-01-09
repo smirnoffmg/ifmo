@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `flowers`.`user` (
+  `id` INT NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `password` VARCHAR(32) NOT NULL,
+  `create_time` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`))

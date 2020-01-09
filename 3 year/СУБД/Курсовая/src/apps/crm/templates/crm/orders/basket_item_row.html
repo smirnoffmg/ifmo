@@ -1,0 +1,15 @@
+{% load widget_tweaks %}
+<tr data-uuid="{{ uuid }}">
+    <td>{{ form.item|add_class:"data-select2"|attr:"data-item-select" }}</td>
+    <td>
+        {{ form.color|add_class:"data-select2" }}
+    </td>
+    <td>{{ form.quantity }}</td>
+    <td>{{ form.one_item_price }}</td>
+    <td>{{ form.item_full_price }}</td>
+    <td align="center">
+        <a href="#" class="btn btn-danger" data-delete-position="{{ uuid }}">
+            <i class="glyphicon glyphicon-remove"></i>
+        </a>
+    </td>
+</tr>

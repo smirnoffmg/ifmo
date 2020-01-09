@@ -1,0 +1,3 @@
+mysql> update bouquet_photos set photo="new.png" where photo="1.jpg";
+Query OK, 2 rows affected (0.13 sec)
+Rows matched: 2  Changed: 2  Warnings: 0

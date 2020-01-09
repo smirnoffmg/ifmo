@@ -1,0 +1,77 @@
+{% extends 'crm/base.html' %}
+{% load static from staticfiles %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'crm/css/morris.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6">
+            <legend>Популярный товар в корзине</legend>
+            <div id="popular_in_basket"></div>
+        </div>
+        <div class="col-md-6">
+            <legend>Популярный товар в заказе</legend>
+            <div id="popular_in_order"></div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <legend>Заказов в день</legend>
+            <div id="orders_per_day"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <legend>Заказано / Оплачено</legend>
+            <div id="money_per_day"></div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script type="text/javascript"
+            src="{% static 'crm/js/vendor/morris.min.js' %}"></script>
+    <script type="text/javascript"
+            src="{% static 'crm/js/vendor/raphael-min.js' %}"></script>
+    <script type="text/javascript">
+        $(function () {
+            new Morris.Bar({
+                element: 'popular_in_basket',
+                data: {{ popular_in_basket_data|safe }},
+                xkey: 'title',
+                ykeys: ['count'],
+                labels: ['Количество']
+            });
+
+            new Morris.Bar({
+                element: 'popular_in_order',
+                data: {{ popular_in_order_data|safe }},
+                xkey: 'title',
+                ykeys: ['count'],
+                labels: ['Количество']
+            });
+
+            new Morris.Line({
+                element: 'orders_per_day',
+                data: {{ orders_per_day_data|safe }},
+                xkey: 'day',
+                ykeys: ['orders'],
+                labels: ['Заказов']
+            });
+
+            new Morris.Line({
+                element: 'money_per_day',
+                data: {{ money_per_day_data|safe }},
+                xkey: 'day',
+                ykeys: ['ordered', 'payed'],
+                labels: ['Заказано', 'Оплачено']
+            });
+
+        });
+    </script>
+{% endblock %}

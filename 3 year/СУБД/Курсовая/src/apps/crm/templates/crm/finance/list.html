@@ -1,0 +1,44 @@
+{% extends 'crm/list.html' %}
+
+{% block table %}
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Сумма</th>
+                    <th>Назначение</th>
+                    <th>Заказ</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for operation in operations %}
+                    <tr>
+                        <td>
+                            {{ operation.created_at }}
+                        </td>
+                        <td>
+                            {{ operation.amount|floatformat:"2" }}&nbsp;₽
+                        </td>
+                        <td>
+                            {{ operation.get_type_display }}
+                        </td>
+                        {% if operation.order %}
+                            <td>
+                                <a href="{% url 'crm:orders:detail' pk=operation.order.pk %}">
+                                    {{ operation.order }}
+                                </a>
+                            </td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

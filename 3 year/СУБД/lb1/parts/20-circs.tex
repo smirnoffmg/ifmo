@@ -1,0 +1,23 @@
+\chapter{Условия}
+
+    \begin{table}[ht]
+	\begin{tabular}{|l|l|}
+		\hline
+		
+		Сопротивление нагрузки, Ом & $R_L=300$ \\ \hline
+		Частота сети, Гц & $f=60$ \\ \hline
+		Действующее значение напряжения, В & $U_{IN\_RMS}=250$ \\ \hline
+		Требуемая амплитуда пульсации, В & $\Delta U_B=1$ \\ \hline
+		Угловая частота сети, рад/с & $\omega=2\cdot \pi \cdot f = 377$\\ \hline
+		Входное напряжение схемы & $U_{IN}(t)=U_{IN\_MAX} \cdot \sin(\omega \cdot t)$ \\ \hline
+	\end{tabular}
+\end{table}
+
+Напряжение на нагрузке:
+\begin{equation*}
+	U_L(t) = 
+	\begin{cases}
+		U_{IN\_MAX} \cdot \sin(\omega \cdot t), &U_{IN\_MAX} \cdot \sin(\omega \cdot t) > 0\\
+		0, &U_{IN\_MAX} \cdot \sin(\omega \cdot t) \le 0
+	\end{cases}
+\end{equation*}

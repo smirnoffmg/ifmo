@@ -1,0 +1,1 @@
+mysqldump -u root --no-create-info --skip-triggers flowers bouquets

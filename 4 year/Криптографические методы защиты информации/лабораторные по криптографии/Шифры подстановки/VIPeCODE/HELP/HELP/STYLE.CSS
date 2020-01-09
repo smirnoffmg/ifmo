@@ -1,0 +1,27 @@
+BODY {
+	font-size : 9px;
+	scrollbar-3dlight-color: rgb(255,200,100);
+	scrollbar-arrow-color: #727272;
+	scrollbar-base-color: rgb(250,181,116);
+	scrollbar-darkshadow-color: Black;
+	scrollbar-face-color: rgb(250,181,116);
+	scrollbar-highlight-color: rgb(255,200,100);
+	scrollbar-shadow-color: rgb(170,110,0);
+	scrollbar-track-color: #707070;
+	margin: 0px 0px 0px 0px;
+}
+.t{
+	font-family : Arial;
+	color:#000000;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: justify;
+	padding: 15px 15px 15px 15px
+}
+
+.pl15{padding-left: 15px}
+
+p{text-indent: 30px}
+a{color: #FF9900; font-weight:bold}
+a:Visited{ color : grey }
+a:Hover{color: #FFCC5E}

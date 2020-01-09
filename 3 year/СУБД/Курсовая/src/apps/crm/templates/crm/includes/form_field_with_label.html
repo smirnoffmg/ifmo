@@ -1,0 +1,13 @@
+{% load widget_tweaks %}
+{% if input %}
+    {% if input.field.widget.type == 'checkbox' %}
+        <div class="checkbox">
+            <label>
+                {{ input }} {{ input.label }}
+            </label>
+        </div>
+    {% else %}
+        <label for="{{ input.auto_id }}">{{ input.label }}</label>
+        {{ input|add_class:"form-control" }}
+    {% endif %}
+{% endif %}%

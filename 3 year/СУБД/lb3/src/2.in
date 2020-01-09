@@ -1,0 +1,11 @@
+mysql> CALL `flowers`.`agg_price`();
+Query OK, 0 rows affected (0,04 sec)
+
+mysql>
+mysql> select * from agg_prices;
++----+-------+-------+
+| id | title | price |
++----+-------+-------+
+|  1 | avg   |  1480 |
++----+-------+-------+
+1 row in set (0,00 sec)

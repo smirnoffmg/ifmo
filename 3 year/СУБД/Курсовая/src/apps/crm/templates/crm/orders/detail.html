@@ -1,0 +1,175 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>#{{ order.order_id }}
+                <small>{{ order.created_at|date:"d/m/Y H:i" }}</small>
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Отправитель:</td>
+                    <td>{{ order.sender }}</td>
+                </tr>
+                <tr>
+                    <td>Номер отправителя:</td>
+                    <td>{{ order.sender_phone }}</td>
+                </tr>
+                <tr>
+                    <td>E-mail отправителя:</td>
+                    <td>{{ order.sender_email }}</td>
+                </tr>
+                <tr>
+                    <td>Адрес отправителя:</td>
+                    <td>{{ order.sender_address }}</td>
+                </tr>
+                <tr>
+                    <td>Комментарий отправителя:</td>
+                    <td>{{ order.sender_comment }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Получатель:</td>
+                    <td>{{ order.receiver }}</td>
+                </tr>
+                <tr>
+                    <td>Номер получателя:</td>
+                    <td>{{ order.receiver_phone }}</td>
+                </tr>
+                <tr>
+                    <td>E-mail получателя:</td>
+                    <td>{{ order.receiver_email }}</td>
+                </tr>
+                <tr>
+                    <td>Адрес получателя:</td>
+                    <td>{{ order.receiver_address }}</td>
+                </tr>
+                <tr>
+                    <td>Комментарий получателя:</td>
+                    <td>{{ order.receiver_comment }}</td>
+                </tr>
+                <tr class="visible-print">
+                    <td>Дата доставки:</td>
+                    <td>{{ order.delivery_date }}</td>
+                </tr>
+                <tr class="visible-print">
+                    {% if not order.exact_delivery_time %}
+                        <td>Период доставки:</td>
+                        <td>{{ order.get_delivery_time_period_display }}</td>
+                    {% else %}
+                        <td>Точное время доставки:</td>
+                        <td>{{ order.exact_delivery_time }}</td>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Наименование</th>
+                    <th>Цвет</th>
+                    <th>Количество</th>
+                    <th>Цена за единицу</th>
+                    <th>Полная стоимость позиции</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in order.basket.items.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.content_object }}</td>
+                        <td>
+                            {% if item.color %}
+                                {{ item.color }}
+                                <span style="background-color: {{ item.color.color }};">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.get_price }}&nbsp;₽</td>
+                        <td>{{ item.get_full_price }}&nbsp;₽</td>
+                    </tr>
+                {% endfor %}
+                {% if order.get_card_price %}
+                <tr>
+                    <td colspan="5">Стоимость открытки:</td>
+                    <td>{{ order.get_card_price }}&nbsp;₽</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td colspan="5">Стоимость доставки:</td>
+                    <td>{{ order.get_delivery_price }}&nbsp;₽</td>
+                </tr>
+                <tr>
+                    <td colspan="5">Полная стоимость заказа:</td>
+                    <td>{{ order.get_full_price }}&nbsp;₽</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Статус:</td>
+                    <td>{{ order.get_status_display|capfirst }}</td>
+                </tr>
+                <tr>
+                    <td>Оплачен:</td>
+                    <td {% if not order.is_payed %}style="background-color: red"{% endif %}>
+                        {% if order.is_payed %}
+                            Да
+                        {% else %}
+                            Нет
+                        {% endif %}
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>Тип оплаты:</td>
+                    <td>{{ order.get_payment_type_display }}</td>
+                </tr>
+                <tr class="hidden-print">
+                    <td>Дата доставки:</td>
+                    <td>{{ order.delivery_date }}</td>
+                </tr>
+                <tr class="hidden-print">
+                {% if not order.exact_delivery_time %}
+                        <td>Период доставки:</td>
+                        <td>{{ order.get_delivery_time_period_display }}</td>
+                    {% else %}
+                        <td>Точное время доставки:</td>
+                        <td>{{ order.exact_delivery_time }}</td>
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <td>Тип открытки:</td>
+                    <td>{{ order.get_card_type_display }}</td>
+                </tr>
+                <tr>
+                    <td>Текст открытки:</td>
+                    <td>{{ order.card_text }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}

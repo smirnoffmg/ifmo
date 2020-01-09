@@ -1,0 +1,11 @@
+mysql> select id, title, price from bouquets order by price asc;
++----+-----------+-------+
+| id | title     | price |
++----+-----------+-------+
+|  4 | bouquet 4 |  1000 |
+|  5 | bouquet 5 |  1200 |
+|  1 | bouquet 1 |  1500 |
+|  2 | bouquet 2 |  1700 |
+|  3 | bouquet 3 |  2000 |
++----+-----------+-------+
+5 rows in set (0.00 sec)

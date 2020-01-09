@@ -1,0 +1,7 @@
+mysql> select avg(price), min(price), max(price) from bouquets;
++------------+------------+------------+
+| avg(price) | min(price) | max(price) |
++------------+------------+------------+
+|       1480 |       1000 |       2000 |
++------------+------------+------------+
+1 row in set (0.00 sec)

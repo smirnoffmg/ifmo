@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<changelog xmlns="http://www.omnigroup.com/namespace/OmniPlan/v2">
+  <version>2.1</version>
+  <task-change-set user="Maxim Smirnov" date="2019-12-08T14:25:57.860Z" timestamp="2019-12-08T14:25:57.860Z">
+    <change idref="t2" to="t-1" to-position="1" resolved="yes">
+      <change idref="t2" attribute="title" type="string" to="Разработка технического проекта"/>
+    </change>
+    <change idref="t3" to="t-1" to-position="2" resolved="yes">
+      <change idref="t3" attribute="title" type="string" to="Разработка рабочего проекта"/>
+    </change>
+    <change idref="t4" to="t-1" to-position="3" resolved="yes">
+      <change idref="t4" attribute="title" type="string" to="Внедрение"/>
+    </change>
+    <change idref="t1" attribute="title" type="string" from="Task 1" to="Разработка технического задания" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Maxim Smirnov" date="2019-12-08T14:32:23.603Z" timestamp="2019-12-08T14:32:23.603Z">
+    <change idref="t1" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t1" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t1" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t1" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t1" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t1" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t1" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t1" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t1" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t1" attribute="internalAssignments" type="string" from="" resolved="yes"/>
+    <change idref="t1" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t1" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t6" to="t1" to-position="0" resolved="yes">
+      <change idref="t6" attribute="title" type="string" to="Разработка технико­экономического обоснования разработки программы "/>
+    </change>
+    <change idref="t7" to="t1" to-position="1" resolved="yes">
+      <change idref="t7" attribute="internalPrerequisitesString" type="string" from="" to="6FS"/>
+      <change idref="t7" attribute="title" type="string" to="Определение стадий, этапов и сроков разработки программы и документации на неё "/>
+    </change>
+    <change idref="t8" to="t1" to-position="2" resolved="yes">
+      <change idref="t8" attribute="internalPrerequisitesString" type="string" from="" to="7FS"/>
+      <change idref="t8" attribute="title" type="string" to="Согласование и утверждение технического задания "/>
+    </change>
+    <change idref="t2" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t2" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t2" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t2" attribute="internalPrerequisitesString" type="string" from="" to="1FS" resolved="yes"/>
+    <change idref="t2" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t2" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t2" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t2" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t2" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t2" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t2" attribute="internalAssignments" type="string" from="" resolved="yes"/>
+    <change idref="t2" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t2" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t11" to="t2" to-position="0" resolved="yes">
+      <change idref="t11" attribute="title" type="string" to="Определение формы представления входных и выходных данных  &#10;"/>
+    </change>
+    <change idref="t12" to="t2" to-position="1" resolved="yes">
+      <change idref="t12" attribute="title" type="string" to="Разработка структуры программы"/>
+    </change>
+    <change idref="t13" to="t2" to-position="2" resolved="yes">
+      <change idref="t13" attribute="title" type="string" to="Разработка плана мероприятий по разработке и внедрению программы"/>
+    </change>
+    <change idref="t14" to="t2" to-position="3" resolved="yes">
+      <change idref="t14" attribute="title" type="string" to="Разработка пояснительной записки"/>
+    </change>
+    <change idref="t15" to="t2" to-position="4" resolved="yes">
+      <change idref="t15" attribute="title" type="string" to="Согласование и утверждение технического проекта"/>
+    </change>
+    <change idref="t3" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t3" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t3" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t3" attribute="internalPrerequisitesString" type="string" from="" to="2FS" resolved="yes"/>
+    <change idref="t3" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t3" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t3" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t3" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t3" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t3" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t3" attribute="internalAssignments" type="string" from="" resolved="yes"/>
+    <change idref="t3" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t3" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t16" to="t3" to-position="0" resolved="yes">
+      <change idref="t16" attribute="title" type="string" to="Программирование и отладка программы"/>
+    </change>
+    <change idref="t17" to="t3" to-position="1" resolved="yes">
+      <change idref="t17" attribute="title" type="string" to="Разработка программной документации"/>
+    </change>
+    <change idref="t18" to="t3" to-position="2" resolved="yes">
+      <change idref="t18" attribute="title" type="string" to="Разработка, согласование и утверждение ПМИ"/>
+    </change>
+    <change idref="t19" to="t3" to-position="3" resolved="yes">
+      <change idref="t19" attribute="title" type="string" to="Проведение предварительных испытаний"/>
+    </change>
+    <change idref="t20" to="t3" to-position="4" resolved="yes">
+      <change idref="t20" attribute="title" type="string" to="Корректировка программы и программной документации по результатам испытаний"/>
+    </change>
+    <change idref="t4" attribute="isGroup" type="real" from="0" to="1" resolved="yes"/>
+    <change idref="t4" attribute="multiResourceWorkType" type="real" from="0" resolved="yes"/>
+    <change idref="t4" attribute="isSplittableTask" type="real" from="1" resolved="yes"/>
+    <change idref="t4" attribute="internalPrerequisitesString" type="string" from="" to="3FS" resolved="yes"/>
+    <change idref="t4" attribute="taskType" type="real" from="0" to="2" resolved="yes"/>
+    <change idref="t4" attribute="resourceAssignmentType" type="real" from="0" resolved="yes"/>
+    <change idref="t4" attribute="staticCost" type="real" from="0" resolved="yes"/>
+    <change idref="t4" attribute="effort" type="real" from="28800" resolved="yes"/>
+    <change idref="t4" attribute="isSplitChunk" type="real" from="0" resolved="yes"/>
+    <change idref="t4" attribute="scheduleType" type="real" from="0" resolved="yes"/>
+    <change idref="t4" attribute="internalAssignments" type="string" from="" resolved="yes"/>
+    <change idref="t4" attribute="isSplitTask" type="real" from="0" resolved="yes"/>
+    <change idref="t4" attribute="internalEffortDone" type="real" from="0" resolved="yes"/>
+    <change idref="t21" to="t4" to-position="0" resolved="yes">
+      <change idref="t21" attribute="title" type="string" to="Подготовка и передача программы"/>
+    </change>
+    <change idref="t22" to="t4" to-position="1" resolved="yes">
+      <change idref="t22" attribute="title" type="string" to="Оформление и утверждение акта о передаче программы"/>
+    </change>
+  </task-change-set>
+  <task-change-set user="Maxim Smirnov" date="2019-12-08T15:32:21.267Z" timestamp="2019-12-08T15:32:21.267Z">
+    <change idref="t6" attribute="title" type="string" from="Разработка технико­экономического обоснования разработки программы " to="Разработка технико­-экономического обоснования разработки программы " resolved="yes"/>
+    <change idref="t6" attribute="internalAssignments" type="string" from="" to="3" resolved="yes"/>
+    <change idref="t7" attribute="internalAssignments" type="string" from="" to="3; 1" resolved="yes"/>
+    <change idref="t8" attribute="internalAssignments" type="string" from="" to="3" resolved="yes"/>
+    <change idref="t11" attribute="title" type="string" from="Определение формы представления входных и выходных данных  &#10;" to="Определение формы представления входных и выходных данных " resolved="yes"/>
+    <change idref="t11" attribute="effort" type="real" from="28800" to="86400" resolved="yes"/>
+    <change idref="t11" attribute="internalAssignments" type="string" from="" to="1" resolved="yes"/>
+    <change idref="t12" attribute="effort" type="real" from="28800" to="144000" resolved="yes"/>
+    <change idref="t12" attribute="internalAssignments" type="string" from="" to="1" resolved="yes"/>
+    <change idref="t13" attribute="internalPrerequisitesString" type="string" from="" to="11FS, 12FS" resolved="yes"/>
+    <change idref="t13" attribute="internalAssignments" type="string" from="" to="1" resolved="yes"/>
+    <change idref="t14" attribute="internalPrerequisitesString" type="string" from="" to="12FS" resolved="yes"/>
+    <change idref="t14" attribute="internalAssignments" type="string" from="" to="3" resolved="yes"/>
+    <change idref="t15" attribute="internalPrerequisitesString" type="string" from="" to="12FS, 13FS, 14FS" resolved="yes"/>
+    <change idref="t15" attribute="internalAssignments" type="string" from="" to="1; 3" resolved="yes"/>
+    <change idref="t16" attribute="internalAssignments" type="string" from="" to="1" resolved="yes"/>
+    <change idref="t17" attribute="internalAssignments" type="string" from="" to="3" resolved="yes"/>
+    <change idref="t18" attribute="effort" type="real" from="28800" to="86400" resolved="yes"/>
+    <change idref="t18" attribute="internalAssignments" type="string" from="" to="1; 2; 3" resolved="yes"/>
+    <change idref="t19" attribute="effort" type="real" from="28800" to="86400" resolved="yes"/>
+    <change idref="t19" attribute="internalAssignments" type="string" from="" to="1; 3" resolved="yes"/>
+    <change idref="t20" attribute="internalPrerequisitesString" type="string" from="" to="19FS" resolved="yes"/>
+    <change idref="t20" attribute="effort" type="real" from="28800" to="144000" resolved="yes"/>
+    <change idref="t20" attribute="internalAssignments" type="string" from="" to="1; 2; 3" resolved="yes"/>
+    <change idref="t21" attribute="internalAssignments" type="string" from="" to="2" resolved="yes"/>
+    <change idref="t22" attribute="internalPrerequisitesString" type="string" from="" to="21FS" resolved="yes"/>
+    <change idref="t22" attribute="internalAssignments" type="string" from="" to="2" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Maxim Smirnov" date="2019-12-08T15:34:49.743Z" timestamp="2019-12-08T15:34:49.743Z">
+    <change idref="t-1" attribute="criticalPathProperties" type="dict" from="{&#10;    color =     {&#10;        b = &quot;0.5&quot;;&#10;        g = &quot;0.5&quot;;&#10;        r = 1;&#10;        space = srgb;&#10;    };&#10;    enabled = 0;&#10;    root = &quot;-1&quot;;&#10;}" to="{&#10;    color =     {&#10;        b = &quot;0.5&quot;;&#10;        g = &quot;0.5&quot;;&#10;        r = 1;&#10;        space = srgb;&#10;    };&#10;    enabled = 1;&#10;    root = &quot;-1&quot;;&#10;}" resolved="yes"/>
+    <change idref="t6" attribute="resourceLeveledDate" type="date" to="2019-12-09T05:00:00.000Z" resolved="yes"/>
+    <change idref="t7" attribute="resourceLeveledDate" type="date" to="2019-12-10T05:00:00.000Z" resolved="yes"/>
+    <change idref="t8" attribute="resourceLeveledDate" type="date" to="2019-12-10T10:00:00.000Z" resolved="yes"/>
+    <change idref="t11" attribute="resourceLeveledDate" type="date" to="2019-12-11T10:00:00.000Z" resolved="yes"/>
+    <change idref="t12" attribute="resourceLeveledDate" type="date" to="2019-12-16T10:00:00.000Z" resolved="yes"/>
+    <change idref="t13" attribute="resourceLeveledDate" type="date" to="2019-12-23T10:00:00.000Z" resolved="yes"/>
+    <change idref="t14" attribute="resourceLeveledDate" type="date" to="2019-12-23T10:00:00.000Z" resolved="yes"/>
+    <change idref="t15" attribute="resourceLeveledDate" type="date" to="2019-12-24T10:00:00.000Z" resolved="yes"/>
+    <change idref="t16" attribute="effort" type="real" from="28800" to="86400" resolved="yes"/>
+    <change idref="t16" attribute="resourceLeveledDate" type="date" to="2019-12-25T05:00:00.000Z" resolved="yes"/>
+    <change idref="t17" attribute="resourceLeveledDate" type="date" to="2019-12-25T05:00:00.000Z" resolved="yes"/>
+    <change idref="t18" attribute="resourceLeveledDate" type="date" to="2019-12-30T05:00:00.000Z" resolved="yes"/>
+    <change idref="t19" attribute="resourceLeveledDate" type="date" to="2019-12-31T05:00:00.000Z" resolved="yes"/>
+    <change idref="t20" attribute="resourceLeveledDate" type="date" to="2020-01-01T10:00:00.000Z" resolved="yes"/>
+    <change idref="t21" attribute="resourceLeveledDate" type="date" to="2020-01-03T06:20:00.000Z" resolved="yes"/>
+    <change idref="t22" attribute="resourceLeveledDate" type="date" to="2020-01-06T06:20:00.000Z" resolved="yes"/>
+  </task-change-set>
+  <task-change-set user="Maxim Smirnov" date="2019-12-08T15:36:14.661Z" timestamp="2019-12-08T15:36:14.661Z">
+    <change idref="t19" attribute="internalPrerequisitesString" type="string" from="" to="17FS, 18FS" resolved="yes"/>
+  </task-change-set>
+  <resource-change-set user="Maxim Smirnov" date="2019-12-08T15:32:21.267Z" timestamp="2019-12-08T15:32:21.267Z">
+    <change idref="r2" to="r-1" to-position="1" resolved="yes">
+      <change idref="r2" attribute="name" type="string" from="" to="Внедренцы"/>
+    </change>
+    <change idref="r3" to="r-1" to-position="2" resolved="yes">
+      <change idref="r3" attribute="name" type="string" from="" to="Технические писатели"/>
+    </change>
+    <change idref="r1" attribute="name" type="string" from="Resource 1" to="Программисты" resolved="yes"/>
+  </resource-change-set>
+  <metadata-change-set user="Maxim Smirnov" date="2019-12-08T14:23:19.934Z" timestamp="2019-12-08T14:23:19.934Z">
+    <change idref="m1" attribute="fixedDate" type="date" from="2007-01-01T20:00:00.000Z" to="2019-12-07T21:00:00.000Z" resolved="yes"/>
+    <change idref="m1" attribute="currencyName" type="string" to="1 234,56 ₽" resolved="yes"/>
+  </metadata-change-set>
+</changelog>

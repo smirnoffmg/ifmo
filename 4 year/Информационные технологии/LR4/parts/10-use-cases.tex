@@ -1,0 +1,28 @@
+\section{Диаграмма прецендентов}
+
+\begin{figure}[h!]
+	\begin{tikzpicture}
+	\begin{umlsystem}{Разработка ПО}
+	\umlusecase{Разработать техническое задание}
+	\umlusecase[y=-3]{Разработать технический проект}
+	\umlusecase[y=-6]{Разработать рабочий проект}
+	\umlusecase[y=-9]{Внедрить ПО}
+	\end{umlsystem}
+	
+	\umlactor[x=7, y=-4]{Технический писатель}
+	\umlactor[x=-7,y=-4]{Программист}
+	\umlactor[x=7, y=-9]{Внедренец}
+	
+	\umlassoc{Технический писатель}{usecase-1}
+	\umlassoc{Технический писатель}{usecase-2}	
+	\umlassoc{Технический писатель}{usecase-3}		
+	\umlassoc{Программист}{usecase-1}	
+	\umlassoc{Программист}{usecase-2}	
+	\umlassoc{Программист}{usecase-3}			
+	\umlassoc{Внедренец}{usecase-3}				
+	\umlassoc{Внедренец}{usecase-4}				
+	
+%	\umlextend{usecase-2}{usecase-3}
+%	\umlinclude{usecase-5}{usecase-7}
+	\end{tikzpicture}
+\end{figure}

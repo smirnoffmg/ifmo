@@ -1,0 +1,131 @@
+\section{Расшифрование криптограммы на основе эллиптических кривых}
+
+Цель работы - дан шифртекст, используя алфавит, приведённый в учебно-методическом пособии к выполнению лабораторного практикума по дисциплине <<Криптография>> в подразделе <<Задачи к лабораторным работам по криптографии на эллиптических кривых (используется кривая $E751(-1,1)$ и генерирующая точка $G = (0,1)$>> и зная секретный ключ $n_b$, найти открытый текст.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|p{10cm}|}
+		\hline
+		Номер варианта & 7                                                                                                                                                                                                                                                                                                                                \\ \hline
+		Секретный ключ & 12                                                                                                                                                                                                                                                                                                                               \\ \hline
+		Шифртекст      & \{(16, 416), (128, 672)\}; \{(56, 419), (59, 386)\}; \{(425, 663), (106, 24)\}; \{(568, 355), (145, 608)\}; \{(188, 93), (279, 398)\}; \{(425, 663), (99, 295)\}; \{(179, 275),,(269, 187)\}; \{(188, 93), (395, 337)\}; \{(188, 93), (311, 68)\}; \{(135, 82), (556, 484)\}; \{(56, 419), (106, 727)\}; \{(16, 416), (307, 693)\} \\ \hline
+	\end{tabular}
+\end{table}
+
+$P_m + k \cdot P_b - n_b \cdot (kG) = (128, 672) - 12 \cdot (16, 416) = (128, 672) + (519, 38)=(236, 39)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{38-672}{519-128} = \frac{-634}{391} = -634 \cdot 391^{-1}\mod{751} = 117 \cdot 315\mod{751} = 56\mod{751} \\
+		x &= 56^2 - 128 - 519 \mod{751} = 236\mod{751} \\
+		y &= 56 \cdot (128 - 236) - 672\mod{751} = 39\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (59, 386) - 12 \cdot (56, 419) = (59, 386) + (499, 595)=(235, 732)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{595-386}{499-59} = \frac{209}{440} = 209 \cdot 440^{-1}\mod{751} = 209 \cdot 425\mod{751} = 207\mod{751} \\
+		x &= 207^2 - 59 - 499 \mod{751} = 235\mod{751} \\
+		y &= 207 \cdot (59 - 235) - 386\mod{751} = 732\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (106, 24) - 12 \cdot (425, 663) = (106, 24) + (750, 750)=(229, 600)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{750-24}{750-106} = \frac{726}{644} = 726 \cdot 644^{-1}\mod{751} = 726 \cdot 379\mod{751} = 288\mod{751} \\
+		x &= 288^2 - 106 - 750 \mod{751} = 229\mod{751} \\
+		y &= 288 \cdot (106 - 229) - 24\mod{751} = 600\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (145, 608) - 12 \cdot (568, 355) = (145, 608) + (406, 397)=(240, 309)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{397-608}{406-145} = \frac{-211}{261} = -211 \cdot 261^{-1}\mod{751} = 540 \cdot 446\mod{751} = 520\mod{751} \\
+		x &= 520^2 - 145 - 406 \mod{751} = 240\mod{751} \\
+		y &= 520 \cdot (145 - 240) - 608\mod{751} = 309\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (279, 398) - 12 \cdot (188, 93) = (279, 398) + (327, 643)=(247, 266)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{643-398}{327-279} = \frac{245}{48} = 245 \cdot 48^{-1}\mod{751} = 245 \cdot 266\mod{751} = 584\mod{751} \\
+		x &= 584^2 - 279 - 327 \mod{751} = 247\mod{751} \\
+		y &= 584 \cdot (279 - 247) - 398\mod{751} = 266\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (99, 295) - 12 \cdot (425, 663) = (99, 295) + (750, 750)=(240, 309)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{750-295}{750-99} = \frac{455}{651} = 455 \cdot 651^{-1}\mod{751} = 455 \cdot 383\mod{751} = 33\mod{751} \\
+		x &= 33^2 - 99 - 750 \mod{751} = 240\mod{751} \\
+		y &= 33 \cdot (99 - 240) - 295\mod{751} = 309\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (269, 187) - 12 \cdot (179, 275) = (269, 187) + (116, 659)=(229, 151)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{659-187}{116-269} = \frac{472}{-153} = 472 \cdot -153^{-1}\mod{751} = 472 \cdot 697\mod{751} = 46\mod{751} \\
+		x &= 46^2 - 269 - 116 \mod{751} = 229\mod{751} \\
+		y &= 46 \cdot (269 - 229) - 187\mod{751} = 151\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (395, 337) - 12 \cdot (188, 93) = (395, 337) + (327, 643)=(237, 454)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{643-337}{327-395} = \frac{306}{-68} = 306 \cdot -68^{-1}\mod{751} = 306 \cdot 254\mod{751} = 371\mod{751} \\
+		x &= 371^2 - 395 - 327 \mod{751} = 237\mod{751} \\
+		y &= 371 \cdot (395 - 237) - 337\mod{751} = 454\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (311, 68) - 12 \cdot (188, 93) = (311, 68) + (327, 643)=(234, 587)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{643-68}{327-311} = \frac{575}{16} = 575 \cdot 16^{-1}\mod{751} = 575 \cdot 47\mod{751} = 740\mod{751} \\
+		x &= 740^2 - 311 - 327 \mod{751} = 234\mod{751} \\
+		y &= 740 \cdot (311 - 234) - 68\mod{751} = 587\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (556, 484) - 12 \cdot (135, 82) = (556, 484) + (135, 82)=(238, 576)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{82-484}{135-556} = \frac{-402}{-421} = 402 \cdot 421^{-1}\mod{751} = 402 \cdot 685\mod{751} = 504\mod{751} \\
+		x &= 504^2 - 556 - 135 \mod{751} = 238\mod{751} \\
+		y &= 504 \cdot (556 - 238) - 484\mod{751} = 576\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (106, 727) - 12 \cdot (56, 419) = (106, 727) + (499, 595)=(236, 39)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{595-727}{499-106} = \frac{-132}{393} = -132 \cdot 393^{-1}\mod{751} = 619 \cdot 279\mod{751} = 722\mod{751} \\
+		x &= 722^2 - 106 - 499 \mod{751} = 236\mod{751} \\
+		y &= 722 \cdot (106 - 236) - 727\mod{751} = 39\mod{751}
+	\end{aligned}
+\end{equation*}
+$P_m + k \cdot P_b - n_b \cdot (kG) = (307, 693) - 12 \cdot (16, 416) = (307, 693) + (519, 38)=(234, 587)$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{38-693}{519-307} = \frac{-655}{212} = -655 \cdot 212^{-1}\mod{751} = 96 \cdot 542\mod{751} = 213\mod{751} \\
+		x &= 213^2 - 307 - 519 \mod{751} = 234\mod{751} \\
+		y &= 213 \cdot (307 - 234) - 693\mod{751} = 587\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		Точка & Буква \\ \hline
+		(236, 39) & и\\ \hline
+		(235, 732) &  з\\ \hline
+		(229, 600) & г\\ \hline
+		(240, 309) & о\\ \hline
+		(247, 266) & т\\ \hline
+		(240, 309) &  о\\ \hline
+		(229, 151) & в\\ \hline
+		(237, 454) & л\\ \hline
+		(234, 587) & е\\ \hline
+		(238, 576) & н \\ \hline
+		(236, 39) & и\\ \hline
+		(234, 587) & е\\ \hline
+		
+	\end{tabular}
+\end{table}

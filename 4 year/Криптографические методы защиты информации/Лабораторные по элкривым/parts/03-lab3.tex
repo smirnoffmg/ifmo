@@ -1,0 +1,68 @@
+\section{Расчёт точки 2P + 3Q – R на эллиптической кривой}
+
+Цель работы: Даны точки $P$,$Q$, $R$ на эллиптической кривой $E751 (−1,1)$. Найти точку $2P + 3Q – R$.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+	\hline 
+	Номер варианта & 7 \\ 
+	\hline 
+	P & (74, 170) \\ 
+	\hline 
+	Q & (53, 277) \\ 
+	\hline 
+	R & (86, 25) \\ 
+	\hline 
+\end{tabular} 
+\end{table}
+
+\textbf{Вычисляем $2P$}
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 74^2 + (-1) }{2 \cdot 170} = \frac{16427}{340} = 16427 \cdot 340^{-1} = 656 \cdot 550\mod{751} = 320\mod{751} \\
+		x &= 320^2 - 74 - 74 \mod{751} = 116\mod{751} \\
+		y &= 320 \cdot (74 - 116) - 170\mod{751} = 659\mod{751}
+	\end{aligned}
+\end{equation*}
+\textbf{$2P=(116, 659)$}
+
+\textbf{Вычисляем $2Q$}
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 53^2 + (-1) }{2 \cdot 277} = \frac{8426}{554} = 8426 \cdot 554^{-1} = 165 \cdot 690\mod{751} = 449\mod{751} \\
+		x &= 449^2 - 53 - 53 \mod{751} = 227\mod{751} \\
+		y &= 449 \cdot (53 - 227) - 277\mod{751} = 452\mod{751}
+	\end{aligned}
+\end{equation*}
+\textbf{$2Q=(227, 452)$}
+
+\textbf{Вычисляем $3Q$}
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{277-452}{53-227} = \frac{-175}{-174} = 175 \cdot 174^{-1}\mod{751} = 175 \cdot 669\mod{751} = 670\mod{751} \\
+		x &= 670^2 - 227 - 53 \mod{751} = 273\mod{751} \\
+		y &= 670 \cdot (227 - 273) - 452\mod{751} = 270\mod{751}
+	\end{aligned}
+\end{equation*}
+\textbf{$3Q=(273, 270)$}
+
+\textbf{Вычисляем $2P+3Q$}
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{270-659}{273-116} = \frac{-389}{157} = -389 \cdot 157^{-1}\mod{751} = 362 \cdot 464\mod{751} = 495\mod{751} \\
+		x &= 495^2 - 116 - 273 \mod{751} = 561\mod{751} \\
+		y &= 495 \cdot (116 - 561) - 659\mod{751} = 611\mod{751}
+	\end{aligned}
+\end{equation*}
+\textbf{$2P+3Q=(561, 611)$}
+
+\textbf{Вычисляем $2P+3Q-R$}
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{726-611}{86-561} = \frac{115}{-475} = 115 \cdot -475^{-1}\mod{751} = 115 \cdot 634\mod{751} = 63\mod{751} \\
+		x &= 63^2 - 561 - 86 \mod{751} = 318\mod{751} \\
+		y &= 63 \cdot (561 - 318) - 611\mod{751} = 429\mod{751}
+	\end{aligned}
+\end{equation*}
+\textbf{$2P+3Q-R=(318, 429)$}

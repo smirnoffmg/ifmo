@@ -1,0 +1,136 @@
+\section{Расчет точки nP на эллиптической кривой}
+
+Цель работы: дана точка $P$ на эллиптической кривой $E751(−1,1)$ и натуральное число $n$. Найти точку $nP$.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline 
+		Вариант & 7 \\ 
+		\hline 
+		P & (39, 580) \\ 
+		\hline 
+		n & 109 \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
+
+\[
+109_{10} = 1101101_{2}
+\]
+
+\[
+n \cdot P = 109 \cdot P = p+  4 \cdot P + 8\cdot P + 32 \cdot P + 64 \cdot P
+\]
+
+\textbf{Найдём $2P$}
+
+$2 \cdot P = 1 \cdot P + 1 \cdot P = (39, 580) + (39, 580) = (156, 704) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 39^2 + (-1) }{2 \cdot 580} = \frac{4562}{1160} = 4562 \cdot 1160^{-1} = 56 \cdot 213\mod{751} = 663\mod{751} \\
+		x &= 663^2 - 39 - 39 \mod{751} = 156\mod{751} \\
+		y &= 663 \cdot (39 - 156) - 580\mod{751} = 704\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $4P$}
+
+$4 \cdot P = 2 \cdot P + 2 \cdot P = (156, 704) + (156, 704) = (157, 576) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 156^2 + (-1) }{2 \cdot 704} = \frac{73007}{1408} = 73007 \cdot 1408^{-1} = 160 \cdot 743\mod{751} = 222\mod{751} \\
+		x &= 222^2 - 156 - 156 \mod{751} = 157\mod{751} \\
+		y &= 222 \cdot (156 - 157) - 704\mod{751} = 576\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $8P$}
+
+$8 \cdot P = 4 \cdot P + 4 \cdot P = (157, 576) + (157, 576) = (327, 108) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 157^2 + (-1) }{2 \cdot 576} = \frac{73946}{1152} = 73946 \cdot 1152^{-1} = 348 \cdot 324\mod{751} = 102\mod{751} \\
+		x &= 102^2 - 157 - 157 \mod{751} = 327\mod{751} \\
+		y &= 102 \cdot (157 - 327) - 576\mod{751} = 108\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $16P$}
+
+$16 \cdot P = 8 \cdot P + 8 \cdot P = (327, 108) + (327, 108) = (519, 713) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 327^2 + (-1) }{2 \cdot 108} = \frac{320786}{216} = 320786 \cdot 216^{-1} = 109 \cdot 226\mod{751} = 602\mod{751} \\
+		x &= 602^2 - 327 - 327 \mod{751} = 519\mod{751} \\
+		y &= 602 \cdot (327 - 519) - 108\mod{751} = 713\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $32P$}
+
+$32 \cdot P = 16 \cdot P + 16 \cdot P = (519, 713) + (519, 713) = (425, 663) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 519^2 + (-1) }{2 \cdot 713} = \frac{808082}{1426} = 808082 \cdot 1426^{-1} = 6 \cdot 583\mod{751} = 494\mod{751} \\
+		x &= 494^2 - 519 - 519 \mod{751} = 425\mod{751} \\
+		y &= 494 \cdot (519 - 425) - 713\mod{751} = 663\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $64P$}
+
+$64 \cdot P = 32 \cdot P + 32 \cdot P = (425, 663) + (425, 663) = (377, 456) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{ 3 \cdot 425^2 + (-1) }{2 \cdot 663} = \frac{541874}{1326} = 541874 \cdot 1326^{-1} = 403 \cdot 64\mod{751} = 258\mod{751} \\
+		x &= 258^2 - 425 - 425 \mod{751} = 377\mod{751} \\
+		y &= 258 \cdot (425 - 377) - 663\mod{751} = 456\mod{751}
+	\end{aligned}
+\end{equation*}
+
+ \textbf{Найдём $64P + 32P = 96P$}
+
+$96 \cdot P = 64 \cdot P + 32 \cdot P = (377, 456) + (425, 663) = (745, 210) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{663-456}{425-377} = \frac{207}{48} = 207 \cdot 48^{-1}\mod{751} = 207 \cdot 266\mod{751} = 239\mod{751} \\
+		x &= 239^2 - 377 - 425 \mod{751} = 745\mod{751} \\
+		y &= 239 \cdot (377 - 745) - 456\mod{751} = 210\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $96P + 8P = 104P$}
+
+$104 \cdot P = 96 \cdot P + 8 \cdot P = (745, 210) + (327, 108) = (616, 400) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{108-210}{327-745} = \frac{-102}{-418} = 102 \cdot 418^{-1}\mod{751} = 102 \cdot 645\mod{751} = 453\mod{751} \\
+		x &= 453^2 - 745 - 327 \mod{751} = 616\mod{751} \\
+		y &= 453 \cdot (745 - 616) - 210\mod{751} = 400\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $104P + 4P = 108P$}
+
+$108 \cdot P = 104 \cdot P + 4 \cdot P = (616, 400) + (157, 576) = (589, 429) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{576-400}{157-616} = \frac{176}{-459} = 176 \cdot -459^{-1}\mod{751} = 176 \cdot 733\mod{751} = 587\mod{751} \\
+		x &= 587^2 - 616 - 157 \mod{751} = 589\mod{751} \\
+		y &= 587 \cdot (616 - 589) - 400\mod{751} = 429\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Найдём $108P + 1P = 109P$}
+
+$109 \cdot P = 108 \cdot P + 1 \cdot P = (589, 429) + (39, 580) = (509, 341) \mod 751$
+\begin{equation*}
+	\begin{aligned}
+		\lambda &= \frac{580-429}{39-589} = \frac{151}{-550} = 151 \cdot -550^{-1}\mod{751} = 151 \cdot 411\mod{751} = 479\mod{751} \\
+		x &= 479^2 - 589 - 39 \mod{751} = 509\mod{751} \\
+		y &= 479 \cdot (589 - 509) - 429\mod{751} = 341\mod{751}
+	\end{aligned}
+\end{equation*}
+
+\textbf{Результат $109P = (509, 341)$}

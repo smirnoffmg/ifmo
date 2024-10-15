@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "labs"
+version = "0.1.0"
+description = ""
+authors = ["Maksim Smirnov <smirnoffmg@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.3"
+scipy = "^1.14.1"
+pulp = "^2.9.0"
+jupyter = "^1.1.1"
+matplotlib = "^3.9.2"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.6.9"
+isort = "^5.13.2"
+mypy = "^1.11.2"
+pytest = "^8.3.3"
+pyupgrade = "^3.18.0"
+pandas-stubs = "^2.2.3.241009"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
